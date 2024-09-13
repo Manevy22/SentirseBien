@@ -28,7 +28,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
     };
 
     // Realiza la petición POST a la API
-    fetch('http://localhost:8081/clientes/crear', requestOptions)
+    fetch('sentirsebien-production.up.railway.app/clientes/crear', requestOptions)
     .then(response => {
         if (response.status === 201) {
             return response.json().then(data => alert('Usuario creado exitosamente.'));
