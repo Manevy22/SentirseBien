@@ -1,0 +1,9 @@
+[build]
+  # No es necesario construir nada, solo copiamos los archivos al directorio del contenedor
+  [build.frontend]
+    command = "cp -R * /app"
+
+[deploy]
+  # Servir los archivos estáticos con un servidor simple
+  [[deploy.frontend]]
+    command = "npx serve /app"
