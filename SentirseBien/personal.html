@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>SPA Center - Beauty & Spa HTML Template</title>
+    <link rel="icon" type="image/svg+xml" href="img/logo2.jpeg">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style1.css" rel="stylesheet">
+    <link href="css/turno.css" rel="stylesheet">
+
+    
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="topBar">
+        <div class="row py-2 px-lg-5">
+            <div class="col-lg-6 text-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center">
+                    <small><i class="fa fa-phone-alt mr-2"></i>3624147072</small>
+                    <small class="px-3">|</small>
+                    <small><i class="fa fa-envelope mr-2"></i>sentirteBien@gmail.com</small>
+                </div>
+            </div>
+            <div class="col-lg-6 text-right">
+                <div class="d-inline-flex align-items-center">
+                    <div class="col-lg-6 text-right">
+                        <div class="d-inline-flex align-items-center">
+                            <a class="text-primary px-2" href="https://www.whatsapp.com" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                            </a> 
+                            <a class="text-primary px-2" href="https://www.facebook.com" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>                                       
+                            <a class="text-primary px-2" href="https://www.instagram.com" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>                    
+                           
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <div class="l"><img src="img/logo2.jpeg"></div>
+            <a href="index.html" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 text-primary"><span class="text-dark">SPA</span> Center</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                    <a href="about.html" class="nav-item nav-link">Nosotros</a>
+                    <a href="service.html" class="nav-item nav-link">Servicios</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Paginas</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="opening.html" class="dropdown-item">Horarios</a>
+                            <a href="Noticias.html" class="dropdown-item">Noticias</a>
+                            <a href="Empleos.html" class="dropdown-item">Empleo</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contacto</a>
+                </div>
+                <a href="Login.html" class="btn btn-primary d-none d-lg-block">Login</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+    <!-- Header Start -->
+    <div class="inicio">
+        <div class="main-content">
+            <header>
+                <div class="date"></div>
+            </header>
+            
+            <div class="welcome">
+               
+                <!-- Botón para abrir el formulario -->
+                <button id="openFormButton" class="btn btn-primary">Agendar Turno</button>
+            </div>
+            
+            <!-- Calendario -->
+            <div class="calendar-wrapper">
+                <header>
+                    <p class="current-date"></p>
+                    <div class="icons">
+                        <span id="prev" class="material-symbols-rounded">←</span>
+                        <span id="next" class="material-symbols-rounded">→</span>
+                    </div>
+                </header>
+                <div class="calendar">
+                    <ul class="weeks">
+                        <li>D</li>
+                        <li>L</li>
+                        <li>M</li>
+                        <li>M</li>
+                        <li>J</li>
+                        <li>V</li>
+                        <li>S</li>
+                    </ul>
+                    <ul class="days"></ul>
+                </div>
+            </div>
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h2>Sesiones del día</h2>
+                  <ul id="session-list">
+                    <!-- Aquí se agregarán las sesiones dinámicamente -->
+                  </ul>
+                </div>
+              </div>
+              <script>const calendarBody = document.querySelector('.days');
+                const currentDate = document.querySelector('.current-date');
+                const prevNextIcon = document.querySelectorAll('.icons span');
+                const modal = document.getElementById("modal");
+                const closeModal = document.querySelector(".close");
+                const sessionList = document.getElementById("session-list");
+                
+                let date = new Date();
+                let currYear = date.getFullYear();
+                let currMonth = date.getMonth();
+                
+                const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                
+                function renderCalendar() {
+                    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay();
+                    let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
+                    let lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay();
+                    let lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
+                
+                    let liTag = "";
+                
+                    for (let i = firstDayofMonth; i > 0; i--) {
+                        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+                    }
+
+                    for (let i = 1; i <= lastDateofMonth; i++) {
+                               let formattedMonth = (currMonth + 1).toString().padStart(2, '0');
+                               let formattedDay = i.toString().padStart(2, '0');
+                               let formattedDate = `${currYear}-${formattedMonth}-${formattedDay}`;
+                       
+                               let isToday = i === date.getDate() && currMonth === new Date().getMonth()
+                                             && currYear === new Date().getFullYear() ? "active" : "";
+                               liTag += `<li class="${isToday}" data-date="${formattedDate}">${i}</li>`;
+                       
+                    }
+                
+                    for (let i = lastDayofMonth; i < 6; i++) {
+                        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
+                    }
+                    currentDate.innerText = `${months[currMonth]} ${currYear}`;
+                    calendarBody.innerHTML = liTag;
+                
+                    // Agregar event listener a cada día
+                    const days = document.querySelectorAll('.days li:not(.inactive)');
+                   
+                    days.forEach(day => {
+                        day.addEventListener('click', (e) => {
+                            const selectedDate = e.target.getAttribute('data-date');
+                            showModal(selectedDate);
+                        });
+                    });
+                }
+                
+                function showModal(date) {
+                    
+                    
+                    fetch(`http://localhost:8081/Sesion/MostrarFecha?fecha=${date }`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la respuesta del servidor');
+            }
+            return response.json();
+        })
+        .then(sessions => {
+            sessionList.innerHTML = ''; // Limpiar la lista antes de agregar nuevas sesiones
+
+            sessions.forEach(session => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+
+                Cliente: ${session.nombreCliente}<br>
+                Servicio: ${session.servicio}<br>
+                Asistencia: 
+           <span style="color: ${session.asistencia ? 'green' : 'red'};">
+        ${session.asistencia ? 'CONFIRMADO' : 'CANCELADO'}
+    </span>
+            `;
+            if (session.asistencia) {
+    const cancelButton = document.createElement('button');
+    cancelButton.textContent = 'Cancelar Turno';
+    cancelButton.style.marginLeft = '10px'; // Añadir un margen para separarlo del texto
+    cancelButton.onclick = function() {
+        fetch(`http://localhost:8081/Sesion/cancelarAsistencia/${session.idA}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Actualiza la interfaz de usuario si la cancelación fue exitosa
+                listItem.innerHTML = `
+                    Cliente: ${session.nombreCliente}<br>
+                    Servicio: ${session.servicio}<br>
+                    Asistencia: <span style="color: red;">CANCELADO</span>
+                `;
+            } else {
+                alert('Error al cancelar la asistencia');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    };
+
+    listItem.appendChild(cancelButton);
+}
+                sessionList.appendChild(listItem);
+            });
+
+            modal.style.display = "block";
+        })
+        .catch(error => console.error('Error al obtener las sesiones:', error));
+            }
+                closeModal.addEventListener('click', () => {
+                    modal.style.display = "none";
+                });
+                
+                window.addEventListener('click', (e) => {
+                    if (e.target == modal) {
+                        modal.style.display = "none";
+                    }
+                });
+                
+                renderCalendar();
+                
+                prevNextIcon.forEach(icon => {
+                    icon.addEventListener("click", () => {
+                        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+                
+                        if(currMonth < 0 || currMonth > 11) {
+                            date = new Date(currYear, currMonth);
+                            currYear = date.getFullYear();
+                            currMonth = date.getMonth();
+                        } else {
+                            date = new Date();
+                        }
+                        renderCalendar();
+                    });
+                });
+                
+                </script>
+            <!-- Buscar Clientes -->
+            <div class="lessons">
+                <h3>Sesiones <span class="search-container"><i class="fa fa-search" id="searchIcon"></i><input type="text" id="searchInput" placeholder="Buscar..."></span></h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>IDCliente</th>
+                            <th>Cliente</th>
+                            <th>Servicio</th>
+                            <th>Fecha</th>
+                            <th>Precio</th>
+                            <th>Asistencia</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="profile">
+            <div class="profile-picture">
+                <img src="img/logo2.jpeg" alt="Stella Walton">
+            </div>
+            <div class="profile-info">
+                <h3>Dr.Felicidad</h3>
+             
+                
+            </div>
+            
+            <div class="carousel-container">
+                <button class="carousel-btn up-btn">⬆</button>
+                <div class="carousel">
+                    <div class="carousel-content">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Información del Profesional</th>
+                                    <th>Detalles de Contacto</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h3 class="doctor-name">Maria Lopez</h3>
+                                        <p> Masajista</p>
+                                    </td>
+                                    <td>
+                                        <p><strong>Teléfono:</strong> +987 654 3210</p>
+                                        <p><strong>Horario:</strong> Lunes a Viernes, 10:00 AM - 6:00 PM</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h3 class="doctor-name">Maria Lopez</h3>
+                                        <p> Masajista</p>
+                                    </td>
+                                    <td>
+                                        <p><strong>Teléfono:</strong> +987 654 3210</p>
+                                        <p><strong>Horario:</strong> Lunes a Viernes, 10:00 AM - 6:00 PM</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h3 class="doctor-name">Maria Lopez</h3>
+                                        <p> Masajista</p>
+                                    </td>
+                                    <td>
+                                        <p><strong>Teléfono:</strong> +987 654 3210</p>
+                                        <p><strong>Horario:</strong> Lunes a Viernes, 10:00 AM - 6:00 PM</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h3 class="doctor-name">Maria Lopez</h3>
+                                        <p> Masajista</p>
+                                    </td>
+                                    <td>
+                                        <p><strong>Teléfono:</strong> +987 654 3210</p>
+                                        <p><strong>Horario:</strong> Lunes a Viernes, 10:00 AM - 6:00 PM</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- Más tablas aquí -->
+                    </div>
+                </div>
+                
+            </div>
+        
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                 .carousel-container {
+                    position: relative;
+                    width: 280px;
+                    max-width: none; 
+                    margin: 50px auto 0 auto; 
+                    overflow: hidden;
+                    padding: 0;
+                }
+
+                .carousel {
+                    height: 700px; 
+                    overflow-y: auto;
+                    scroll-behavior: smooth;
+                }
+
+                .carousel-content {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0; 
+                    padding: 0; 
+                }
+
+                .custom-table {
+                    width: 100%; 
+                    background-color: #fff;
+                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                    border-radius: 8px;
+                    overflow: hidden;
+                    margin-bottom: 20px; 
+                    max-width: none; 
+                }
+
+                .custom-table th, .custom-table td {
+                    padding: 20px;
+                    text-align: left;
+                    border-bottom: 1px solid #ddd;
+                }
+
+                .custom-table th {
+                    background-color: #FEF3F1;
+                    font-size: 1.1em;
+                }
+
+                .custom-table tr:hover {
+                    background-color: #FEF3F1;
+                }
+
+                .doctor-name {
+                    margin: 0;
+                }
+
+                .carousel-btn {
+                    position: absolute;
+                    width: 100%; 
+                    background: #F9A392;
+                    color: #fff;
+                    border: none;
+                    cursor: pointer;
+                    padding: 10px;
+                    text-align: center;
+                }
+
+                .up-btn {
+                    top: 0;
+                    left: 0;
+                }
+
+                .down-btn {
+                    bottom: 0;
+                    left: 0;
+                }
+
+
+            </style>
+        </div>
+            
+       
+            <div id="appointmentModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Agendar Turno</h2>
+                    <form id="appointmentForm">
+                        <label for="appointmentDate">Fecha:</label>
+                        <input type="date" id="appointmentDate" name="appointmentDate" required>
+                        <label for="appointmentClient">ID del Cliente:</label> <!-- Asegúrate de ingresar el ID del cliente -->
+                        <input type="number" id="appointmentClient" name="appointmentClient" required>
+                        <label for="appointmentCost">Costo:</label>
+                        <input type="number" id="appointmentCost" name="appointmentCost" step="0.01" required>
+                        <label for="appointmentService">Servicio:</label>
+                    <select id="appointmentService" name="appointmentService" required>
+                        <option value="">Selecciona un servicio</option>
+                        <!-- Las opciones se llenarán dinámicamente -->
+                    </select>
+                        <label for="appointmentEstado">Estado:
+                            <span style="display: inline-block; width: 10px; height: 10px; background-color: green; border-radius: 50%; vertical-align: middle;"></span>
+                            <span style="vertical-align: middle; margin-left: 5px;">En proceso</span></label>
+                        <button type="submit" class="btn btn-primary">Guardar Turno</button>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+   
+<!-- Footer Start -->
+<div class="footer container-fluid position-relative bg-dark py-5" style="margin-top: 90px;">
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-lg-6 pr-lg-5 mb-5">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="mb-3 text-white"><span class="text-primary">SPA</span> Center</h1>
+                </a>
+                <p>En el corazón de la ciudad, descubre un remanso de paz donde el estrés se desvanece y la serenidad te envuelve.  Sentirte Bien Spa es tu oasis personal, un espacio diseñado para reconectar contigo mismo y alcanzar un estado de bienestar absoluto.</p>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Avenida 9 de Julio 100</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>3624147072</p>
+                <p><i class="fa fa-envelope mr-2"></i>SentirteBien@gmail.com</p>
+                <div class="d-flex justify-content-start mt-4">
+                    <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-6 pl-lg-5">
+                <div class="row">
+                    <div class="col-sm-6 mb-5">
+                        <h5 class="text-white text-uppercase mb-4">Links</h5>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Inicio</a>
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Nosotros</a>
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Servicios</a>
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Planes</a>
+                            <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Contactanos</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 mb-5">
+                        <h5 class="text-white text-uppercase mb-4">Nuestros Servicios</h5>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Masajes Corporales</a>
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Terapia de Piedras</a>
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Terapia Facial</a>
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Skin Care</a>
+                            <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Manicura</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 mb-5">
+                        <h5 class="text-white text-uppercase mb-4">Novedades</h5>
+                        <div class="w-100">
+                            <div class="input-group">
+                                <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Your Email Address">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary px-4">Registrate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-dark text-light border-top py-4" style="border-color: rgba(256, 256, 256, .15) !important;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a href="#">Sentirte Bien Spa Center</a>. All Rights Reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-right">
+                <p class="m-0 text-white">Designed by <a href="https://htmlcodex.com">Made in TUP</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/scriptChat.js"></script>
+    <script src="js/personal.js"></script>
+
+    <script>
+        async function loadServicios() {
+            try {
+                const response = await fetch('http://localhost:8081/servicio/traerServicio', {
+                    method: 'GET',  // Método GET para obtener servicios
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+        
+                if (response.ok) {
+                    const data = await response.json();
+                    populateServicesDropdown(data);  // Llenar el dropdown con los servicios
+                } else {
+                    console.error('Error al cargar los servicios:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error al conectarse al servidor:', error);
+            }
+        }
+        
+        // Función para llenar el dropdown con los servicios
+        function populateServicesDropdown(servicios) {
+            const servicioSelect = document.getElementById('appointmentService');
+        
+            // Limpiar las opciones actuales
+            servicioSelect.innerHTML = '<option value="">Selecciona un servicio</option>';
+            
+            // Agregar opciones de servicios
+            servicios.forEach(servicio => {
+                const option = document.createElement('option');
+                option.value = servicio.id;  // Aquí va el ID del servicio
+                option.textContent = servicio.nombreServicio;  // Aquí va el nombre del servicio
+                servicioSelect.appendChild(option);
+            });
+        }
+        
+        // Configurar los eventos cuando el documento esté cargado
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('appointmentModal');
+            const openFormButton = document.getElementById('openFormButton');
+            const closeButton = document.querySelector('.close');
+        
+            // Abre el modal cuando se hace clic en el botón
+            openFormButton.addEventListener('click', function () {
+                modal.style.display = 'block';
+            });
+        
+            // Cierra el modal cuando se hace clic en el botón de cerrar (x)
+            closeButton.addEventListener('click', function () {
+                modal.style.display = 'none';
+            });
+        
+            // Cierra el modal cuando se hace clic fuera del contenido del modal
+            window.addEventListener('click', function (event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        
+            // Cargar los servicios en el desplegable
+            loadServicios();
+        
+            // Manejar el envío del formulario
+            document.getElementById('appointmentForm').addEventListener('submit', function (event) {
+                event.preventDefault();  // Prevenir el envío del formulario
+        
+                // Obtener los datos del formulario
+                const formData = {
+                    id_Cliente: parseInt(document.getElementById('appointmentClient').value),    // ID del cliente
+                    id_Servicio: parseInt(document.getElementById('appointmentService').value),  // ID del servicio
+                    fecha: document.getElementById('appointmentDate').value,                     // Fecha seleccionada
+                    costo: parseFloat(document.getElementById('appointmentCost').value),         // Costo
+                    asistencia:1 // Valor fijo de ejemplo
+                };
+                console.log(formData);  // Verifica los datos que estás enviando
+                // Asegurarte de que el ID del servicio es enviado y no el nombre
+                if (isNaN(formData.id_Servicio)) {
+                    alert("Selecciona un servicio válido.");
+                    return;
+                }
+        
+                // Configuración de la petición POST
+                const requestOptions = {
+                    method: 'POST',  // Método POST para enviar datos
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                };
+        
+                // Enviar los datos al servidor
+                fetch('http://localhost:8081/Sesion/crearDos', requestOptions)
+                    .then(response => {
+                        if (response.ok) {
+                            alert('Turno agendado exitosamente.');
+                            modal.style.display = 'none';  // Cerrar el modal si se agenda exitosamente
+                        } else if (response.status === 409) {
+                            return response.text().then(message => alert('Error: ' + message));
+                        } else {
+                            return response.text().then(message => alert('Hubo un problema: ' + message));
+                        }
+
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Hubo un problema al agendar el turno.');
+                    });
+            });
+        });
+
+    </script>
+    <style>
+        select#appointmentService {
+        font-size: 20px; /* Tamaño de letra para el desplegable */
+        padding: 10px;   /* Espaciado interno para hacer el campo más grande */
+    }
+    
+    select#appointmentService option {
+        font-size: 20px; /* Tamaño de letra para las opciones */
+    } 
+    select#appointmentService {
+        font-size: 20px; /* Tamaño de letra para el desplegable */
+        padding: 10px;   /* Espaciado interno para hacer el campo más grande */
+    }
+
+    select#appointmentService option {
+        font-size: 20px; /* Tamaño de letra para las opciones */
+    }</style>
+</body>
+
+</html>

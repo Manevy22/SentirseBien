@@ -1,0 +1,14 @@
+# Usa la imagen base de OpenJDK (la versión 17 es recomendada para Spring Boot)
+FROM openjdk:17-jdk-alpine
+
+# Establece el directorio de trabajo dentro del contenedor
+WORKDIR /app
+
+# Copia el archivo JAR generado al directorio de trabajo en el contenedor
+COPY target/mi-api-spring-boot.jar app.jar
+
+# Expone el puerto 8081 (el puerto por defecto de Spring Boot)
+EXPOSE 8081
+
+# Comando para ejecutar la aplicación
+ENTRYPOINT ["java", "-jar", "app.jar"]

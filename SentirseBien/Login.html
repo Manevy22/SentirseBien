@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>SPA Center - Beauty & Spa HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Custom JavaScript -->
+    <script src="js/login.js" defer></script>
+</head>
+<body>
+    <!-- Topbar Start -->
+   <!-- Topbar Start -->
+   <div class="topBar">
+    <div class="row py-2 px-lg-5">
+        <div class="col-lg-6 text-left mb-2 mb-lg-0">
+            <div class="d-inline-flex align-items-center">
+                <small><i class="fa fa-phone-alt mr-2"></i>3624147072</small>
+                <small class="px-3">|</small>
+                <small><i class="fa fa-envelope mr-2"></i>sentirteBien@gmail.com</small>
+            </div>
+        </div>
+        <div class="col-lg-6 text-right">
+            <div class="d-inline-flex align-items-center">
+                <div class="col-lg-6 text-right">
+                    <div class="d-inline-flex align-items-center">
+                        <a class="text-primary px-2" href="https://www.whatsapp.com" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a> 
+                        <a class="text-primary px-2" href="https://www.facebook.com" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>                                       
+                        <a class="text-primary px-2" href="https://www.instagram.com" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>                    
+                       
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <div class="l"><img src="img/logo2.jpeg"></div>
+            <a href="index.html" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 text-primary"><span class="text-dark">SPA</span> Center</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                    <a href="about.html" class="nav-item nav-link">Nosotros</a>
+                    <a href="service.html" class="nav-item nav-link">Servicios</a>
+                    <a href="price.html" class="nav-item nav-link">Pricing</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Paginas</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="appointment.html" class="dropdown-item">Citas</a>
+                            <a href="opening.html" class="dropdown-item">Horarios</a>
+                            <a href="team.html" class="dropdown-item">Equipo</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonios</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contacto</a>
+                </div>
+                
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Formulario de Ingreso -->
+    <div class="row justify-content-center bg-appointment mx-0">
+        <div class="col-lg-6 py-5">
+            <div class="p-5 my-5" style="background: rgba(33, 30, 28, 0.7);">
+                <h1 class="text-white text-center mb-4">Ingresar</h1>
+                <form id="loginForm">
+                    <div class="form-row">
+                        <div class="col-sm-6">
+                            <div class="form-group" >
+                                <input  type="text" id="username" class="form-control bg-transparent p-4" placeholder="Nombre de Usuario" required="required"  />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="password" id="password" class="form-control bg-transparent p-4" placeholder="Contraseña" required="required" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-center">
+                        <div class="col-auto">
+                            <div class="form-group text-center">
+                                <label class="text-white mr-3">
+                                    <input type="radio" name="role" value="Cliente" id="roleCliente" required="required"> Cliente
+                                </label>
+                                <label class="text-white">
+                                    <input type="radio" name="role" value="Personal" id="rolePersonal" required="required"> Personal
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-center">
+                        <div class="col-sm-6">
+                            <button class="btn btn-primary btn-block" type="submit" style="height: 47px;">Ingresar</button>
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-center">
+                        <div class="col-auto">
+                            <p class="text-white mt-3">
+                                ¿Todavía no estás registrado?
+                                <a href="registrar.html" class="text-primary">Registrarse</a>
+                            </p>
+                        </div>
+                    </div>
+                    <p id="error-message" class="text-white mt-3"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

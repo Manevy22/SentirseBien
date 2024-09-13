@@ -1,0 +1,18 @@
+.carousel-control-prev,
+.carousel-control-next {
+  top: 50%; /* Baja las flechas un poco más */
+  bottom: auto; /* Asegura que las flechas no estén pegadas al fondo */
+  transform: translateY(-50%);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(255, 182, 193, 0.7); /* Color pastel rosado */
+  border-radius: 50%; /* Opción para hacer las flechas redondeadas */
+  width: 24px; /* Ajusta el tamaño si es necesario */
+  height: 24px;
+}
+/* Estilo para los campos de entrada y área de texto */
+#testimonialForm .form-control {
+    color: black; /* Cambia el color del texto a negro */
+}
