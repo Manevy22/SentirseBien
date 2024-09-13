@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function loadClientProfile() {
         try {
-            const response = await fetch(`http://localhost:8081/cliente/perfil?clienteId=${clienteId}`, {
+            const response = await fetch(`sentirsebien-production.up.railway.app/cliente/perfil?clienteId=${clienteId}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${authToken}`
