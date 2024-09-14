@@ -75,7 +75,6 @@ public class PersonalController {
          servis.editPersonalII(c);
          return servis.findPersonal(c.getId());
      }
-   @CrossOrigin(origins = "http://127.0.0.1:8080")
 @PostMapping("/Personal/login")
 public ResponseEntity<Map<String, Object>> loginPersonal(@RequestBody ClienteLoginDTO pers) {
     List<Personal> listaPersonal = servis.getPersonal();
@@ -96,7 +95,6 @@ public ResponseEntity<Map<String, Object>> loginPersonal(@RequestBody ClienteLog
     return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
 }
 
-@CrossOrigin(origins = "http://127.0.0.1:8080")
 @GetMapping("/personal/perfil")
     public ResponseEntity<PersonalPerfilDTO> getPerfilPersonal(@RequestParam Long PersonalId) {
         //creo un Personal que le pasa datos basicos a PERSONALDTO
