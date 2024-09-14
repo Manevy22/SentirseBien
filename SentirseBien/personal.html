@@ -220,7 +220,7 @@
     cancelButton.textContent = 'Cancelar Turno';
     cancelButton.style.marginLeft = '10px'; // Añadir un margen para separarlo del texto
     cancelButton.onclick = function() {
-        fetch(`http://localhost:8081/Sesion/cancelarAsistencia/${session.idA}`, {
+        fetch(`https://sentirsebien-production.up.railway.app/Sesion/cancelarAsistencia/${session.idA}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
