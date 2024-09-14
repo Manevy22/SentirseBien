@@ -28,17 +28,5 @@ public class PersonalPerfilDTO {
         this.nombre_usuario = nombre_usuario;
         this.listaPer_Ses = listaPer_Ses;
     }
-
-
-    public void setListaPer_Ses(List<SesionPersonalDTO> listaSesionesDos) {
-        this.listaPer_Ses=listaSesionesDos;
-    }
-
-    public void setId(Long id) {
-        this.id=id;
-    }
-
-    public void setNombre_usuario(String nombreUsuario) {
-        this.nombre_usuario=nombreUsuario;
-    }
+  
 }
