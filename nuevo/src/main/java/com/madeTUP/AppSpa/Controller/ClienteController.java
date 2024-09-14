@@ -53,7 +53,7 @@ public class ClienteController {
         return servis.getClientes();
     }
             
-    @CrossOrigin(origins = "http://just-luck-production.up.railway.app:8081")
+    @CrossOrigin(origins = "https://just-luck-production.up.railway.app:8081")
     @PostMapping("/clientes/crear")
     public String crearCliente(@RequestBody Cliente c){
         servis.saveCliente(c);
