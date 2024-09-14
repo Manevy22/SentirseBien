@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 let endpoint = '';
                 if (role === 'Cliente') {
-                    endpoint = 'https://sentirsebien-production.up.railway.app:8081/Cliente/login';
+                    endpoint = 'https://overflowing-magic-production.up.railway.app/Cliente/login';
                 } else if (role === 'Personal') {
-                    endpoint = 'https://sentirsebien-production.up.railway.app:8081/Personal/login';
+                    endpoint = 'https://overflowing-magic-production.up.railway.app/Personal/login';
                 }
 
                 if (!endpoint) {
