@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 // Guardar el testimonio en la API
-                const response = await fetch('http://localhost:8081/Testimonio/crear', {
+                const response = await fetch('https://overflowing-magic-production.up.railway.app/Testimonio/crear', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para cargar testimonios guardados desde la API
     async function loadTestimonials() {
         try {
-            const response = await fetch('http://localhost:8081/Testimonio/traer');
+            const response = await fetch('https://overflowing-magic-production.up.railway.app/Testimonio/traer');
             const testimonials = await response.json();
 
             testimonials.forEach(testimonial => {
