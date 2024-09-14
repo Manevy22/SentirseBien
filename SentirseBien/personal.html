@@ -194,7 +194,7 @@
                 function showModal(date) {
                     
                     
-                    fetch(`http://localhost:8081/Sesion/MostrarFecha?fecha=${date }`)
+                    fetch(`https://overflowing-magic-production.up.railway.app/Sesion/MostrarFecha?fecha=${date }`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error en la respuesta del servidor');
@@ -220,7 +220,7 @@
     cancelButton.textContent = 'Cancelar Turno';
     cancelButton.style.marginLeft = '10px'; // Añadir un margen para separarlo del texto
     cancelButton.onclick = function() {
-        fetch(`https://sentirsebien-production.up.railway.app/Sesion/cancelarAsistencia/${session.idA}`, {
+        fetch(`https://overflowing-magic-production.up.railway.app/Sesion/cancelarAsistencia/${session.idA}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
