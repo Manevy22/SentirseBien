@@ -582,7 +582,7 @@
     <script>
         async function loadServicios() {
             try {
-                const response = await fetch('http://localhost:8081/servicio/traerServicio', {
+                const response = await fetch('https://overflowing-magic-production.up.railway.app/servicio/traerServicio', {
                     method: 'GET',  // Método GET para obtener servicios
                     headers: {
                         'Content-Type': 'application/json'
@@ -669,7 +669,7 @@
                 };
         
                 // Enviar los datos al servidor
-                fetch('http://localhost:8081/Sesion/crearDos', requestOptions)
+                fetch('https://overflowing-magic-production.up.railway.app/Sesion/crearDos', requestOptions)
                     .then(response => {
                         if (response.ok) {
                             alert('Turno agendado exitosamente.');
