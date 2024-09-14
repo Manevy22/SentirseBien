@@ -42,7 +42,6 @@ public class SesionController {
      @Autowired 
     private IClienteService servis2;
 
-    @CrossOrigin(origins = "http://127.0.0.1:8080")
     @PutMapping("/Sesion/cancelarAsistencia/{id}")
     public ResponseEntity<?> cancelarAsistencia(@PathVariable Long id) {
         boolean success = servis.cancelarAsistencia(id);  // Asegúrate de pasar el ID
@@ -54,7 +53,6 @@ public class SesionController {
     }
 
 
-    @CrossOrigin(origins = "http://127.0.0.1:8080")
     @GetMapping ("/Sesion/MostrarFecha")
     public List<SesionPersonalDTO> getSesionesPorFecha(@RequestParam("fecha") String fecha) {
         LocalDate localDate = LocalDate.parse(fecha);
@@ -67,13 +65,11 @@ public class SesionController {
         return servis.getServicio();
     }
     
-    @CrossOrigin(origins = "http://127.0.0.1:8080")
     @PostMapping("/Sesion/crear")    
     public String crearSesion(@RequestBody Sesion c){
         servis.saveSesion(c);
         return "Sesion creada";
     }
-    @CrossOrigin(origins = "http://127.0.0.1:8080")
     @PostMapping("/Sesion/crearDos")    
     public String crearSesionDTO(@RequestBody NewSesionDTO se){
         Sesion sesion= new Sesion();
@@ -89,7 +85,6 @@ public class SesionController {
         servis.saveSesion(sesion);
         return "Sesion creada";
     }
-       @CrossOrigin(origins = "http://127.0.0.1:8080")
     @GetMapping("/Sesion/encontrar/{id_sesion}")
     public Sesion findSesion(@PathVariable Long id_sesion){
         return servis.findSesion(id_sesion);
