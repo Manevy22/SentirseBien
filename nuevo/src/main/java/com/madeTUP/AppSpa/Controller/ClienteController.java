@@ -53,7 +53,6 @@ public class ClienteController {
         return servis.getClientes();
     }
             
-    @CrossOrigin(origins = "*")
     @PostMapping("/clientes/crear")
     public String crearCliente(@RequestBody Cliente c){
         servis.saveCliente(c);
