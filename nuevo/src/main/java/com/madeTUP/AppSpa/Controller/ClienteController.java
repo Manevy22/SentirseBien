@@ -53,7 +53,7 @@ public class ClienteController {
         return servis.getClientes();
     }
             
-    @CrossOrigin(origins = "https://sentirsebien-production.up.railway.app:8081")
+    @CrossOrigin(origins = "https://sentirsebien-production.up.railway.app")
     @PostMapping("/clientes/crear")
     public String crearCliente(@RequestBody Cliente c){
         servis.saveCliente(c);
@@ -116,7 +116,7 @@ public class ClienteController {
        servis4.editConsultaII(co);
          return "Consulta Agregada";
      }
-     @CrossOrigin(origins = "https://sentirsebien-production.up.railway.app:8081")
+     @CrossOrigin(origins = "https://sentirsebien-production.up.railway.app")
     @PostMapping("/Cliente/login")
 public ResponseEntity<Map<String, Object>> loginCliente(@RequestBody ClienteLoginDTO clienteDTO) {
     List<Cliente> listaClientes = servis.getClientes();
@@ -138,7 +138,7 @@ public ResponseEntity<Map<String, Object>> loginCliente(@RequestBody ClienteLogi
 }
 
 
-@CrossOrigin(origins = "https://just-luck-production.up.railway.app:8081")
+@CrossOrigin(origins = "https://just-luck-production.up.railway.app")
 @GetMapping("/cliente/perfil")
     public ResponseEntity<ClientePerfilDTO> getPerfilCliente(@RequestParam Long clienteId) {
         Cliente cliente1= servis.findCliente(clienteId);
