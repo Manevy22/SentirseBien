@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 let endpoint = '';
                 if (role === 'Cliente') {
-                    endpoint = 'sentirsebien-production.up.railway.app/Cliente/login';
+                    endpoint = 'https://sentirsebien-production.up.railway.app/Cliente/login';
                 } else if (role === 'Personal') {
-                    endpoint = 'sentirsebien-production.up.railway.app/Personal/login';
+                    endpoint = 'https://sentirsebien-production.up.railway.app/Personal/login';
                 }
 
                 if (!endpoint) {
