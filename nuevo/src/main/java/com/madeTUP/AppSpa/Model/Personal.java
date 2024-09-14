@@ -37,16 +37,4 @@ public class Personal {
         this.contrasenia = contrasenia;
     }
 
-
-    public Long getId() {
-        return id=id;
-    }
-
-    public String getNombre_usuario() {
-        return nombre_usuario;
-    }
-
-    public String getContrasenia() {
-        return  contrasenia;
-    }
 }
