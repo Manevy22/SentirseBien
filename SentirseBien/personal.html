@@ -219,8 +219,12 @@
             `;
             if (session.asistencia) {
     const cancelButton = document.createElement('button');
-    cancelButton.textContent = 'Cancelar Turno';
-    cancelButton.style.marginLeft = '10px'; // Añadir un margen para separarlo del texto
+   cancelButton.textContent = 'Cancelar Turno';
+    cancelButton.style.color = 'white';  
+    cancelButton.style.borderRadius = '5px';
+    cancelButton.style.border = 'none';  
+    cancelButton.style.padding = '6px';  ; // Añadir un margen para separarlo del texto
+    cancelButton.style.background='#F9A392';
     cancelButton.onclick = function() {
         fetch(`https://overflowing-magic-production.up.railway.app/Sesion/cancelarAsistencia/${session.idA}`, {
             method: 'PUT',
