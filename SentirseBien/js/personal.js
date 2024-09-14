@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function loadPersonalProfile() {
         try {
-            const response = await fetch(`https://sentirsebien-production.up.railway.app/personal/perfil?PersonalId=${personalId}`, {
+            const response = await fetch(`https://overflowing-magic-production.up.railway.app/personal/perfil?PersonalId=${personalId}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${authToken}`
