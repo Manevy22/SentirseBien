@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/servicio")
 
-@CrossOrigin(origins = "http://127.0.0.1:8080")
 public class ServicioController {
     @Autowired 
     private IServicioService servis;
