@@ -53,7 +53,7 @@ public class ClienteController {
         return servis.getClientes();
     }
             
-    @CrossOrigin(origins = "https://sentirsebien-production.up.railway.app")
+    @CrossOrigin(origins = "https://overflowing-magic-production.up.railway.app")
     @PostMapping("/clientes/crear")
     public String crearCliente(@RequestBody Cliente c){
         servis.saveCliente(c);
