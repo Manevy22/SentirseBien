@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Sentirse Bien</title>
+    <title>Sentirte Bien</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/logo2.jpeg" rel="icon">
 
      <!-- Google Web Fonts -->
      <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,42 +27,145 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/service.css" rel="stylesheet">
+
+
+    <style>
+     
+    
+
+        .modal1 {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow-y: auto; /* Permite desplazarse si el contenido es grande */
+        }
+
+        .modal-content1 {
+            background-color:#FEF1EF;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #f9a392;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            text-align: left;
+            display: flex;
+            gap: 20px;
+        }
+
+        .close {
+            color:#f9a392;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color:#f7846e;
+            text-decoration: none;
+        }
+
+        /* Estilo para la imagen y contenido en columnas */
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 300px;
+            max-height: 500px; /* Ajusta la altura máxima para hacerla más larga */
+            border-radius: 10px;
+            object-fit: cover; /* Asegura que la imagen mantenga sus proporciones */
+        }
+
+        .details-container {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+
+
+
+
+
+
+        .payments {
+            margin-bottom: 20px;
+        }
+
+      
+        /* Estilo para el botón de reservar turno */
+        .reserve-button {
+            background-color:#f9a392;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .reserve-button:hover {
+            background-color: #f7846e;
+            border-color: #f67a62;
+        }
+
+        /* Asegura que el modal tenga un espacio adecuado */
+        .modal-footer {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
-     <!-- Topbar Start -->
-   <div class="topBar">
-    <div class="row py-2 px-lg-5">
-        <div class="col-lg-6 text-left mb-2 mb-lg-0">
-            <div class="d-inline-flex align-items-center">
-                <small><i class="fa fa-phone-alt mr-2"></i>3624147072</small>
-                <small class="px-3">|</small>
-                <small><i class="fa fa-envelope mr-2"></i>sentirteBien@gmail.com</small>
+    <!-- Topbar Start -->
+    <div class="topBar">
+        <div class="row py-2 px-lg-5">
+            <div class="col-lg-6 text-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center">
+                    <small><i class="fa fa-phone-alt mr-2"></i>+012 345 6789</small>
+                    <small class="px-3">|</small>
+                    <small><i class="fa fa-envelope mr-2"></i>info@example.com</small>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-6 text-right">
-            <div class="d-inline-flex align-items-center">
-                <div class="col-lg-6 text-right">
-                    <div class="d-inline-flex align-items-center">
-                        <a class="text-primary px-2" href="https://www.whatsapp.com" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                        </a> 
-                        <a class="text-primary px-2" href="https://www.facebook.com" target="_blank">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>                                       
-                        <a class="text-primary px-2" href="https://www.instagram.com" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>                    
-                       
-                    </div>
+            <div class="col-lg-6 text-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-primary px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-primary px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-primary px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-primary px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-primary pl-2" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-   </div>
-  </div>     
-
-<!-- Topbar End -->
+    <!-- Topbar End -->
     <!-- Navbar Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
@@ -100,10 +203,11 @@
     <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid bg-jumbotron" style="margin-bottom: 90px;">
         <div class="container text-center py-5">
-            <h3 class="text-white display-3 mb-4">Servicios</h3>
+            <h3 class="text-white display-3 mb-4">Services</h3>
             <div class="d-inline-flex align-items-center text-white">
-                <p class="m-0"><a class="text-white" href="">Inicio</a></p>              
-                
+                <p class="m-0"><a class="text-white" href="">Home</a></p>
+                <i class="far fa-circle px-3"></i>
+                <p class="m-0">Services</p>
             </div>
         </div>
     </div>
@@ -123,7 +227,7 @@
                     <h4 class="text-white font-weight-medium px-3"> Anti-stress</h4>
                     <p class="text-white px-3 mb-3"></p>
                     <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Reservar</a>
+                        <a class="btn btn-primary" href="javascript:void(0);" onclick="openModal('myModal3')">Mas info</a>
                     </div>
                 </div>
             </div>
@@ -133,7 +237,7 @@
                     <h4 class="text-white font-weight-medium px-3"> Descontracturantes</h4>
                     <p class="text-white px-3 mb-3"></p>
                     <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Reservar</a>
+                        <a class="btn btn-primary" href="javascript:void(0);" onclick="openModal('myModal4')">Mas info</a>
                     </div>
                 </div>
             </div>
@@ -143,7 +247,7 @@
                     <h4 class="text-white font-weight-medium px-3"> Masajes con piedras calientes</h4>
                     <p class="text-white px-3 mb-3"></p>
                     <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Reservar</a>
+                        <a class="btn btn-primary" href="javascript:void(0);" onclick="openModal('myModal5')">Mas info</a>
                     </div>
                 </div>
             </div>
@@ -153,7 +257,7 @@
                     <h4 class="text-white font-weight-medium px-3"> Circulatorios</h4>
                     <p class="text-white px-3 mb-3"></p>
                     <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Reservar</a>
+                        <a class="btn btn-primary" href="javascript:void(0);" onclick="openModal('myModal6')">Mas info</a>
                     </div>
                 </div>
             </div>
@@ -175,7 +279,7 @@
                     <h4 class="text-white font-weight-medium px-3">  Lifting de pestaña</h4>
                     <p class="text-white px-3 mb-3"></p>
                     <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Reservar</a>
+                        <a class="btn btn-primary" href="javascript:void(0);" onclick="openModal('myModal1')">Mas info</a>
                     </div>
                 </div>
             </div>
@@ -185,7 +289,7 @@
                     <h4 class="text-white font-weight-medium px-3"> Depilación facial</h4>
                     <p class="text-white px-3 mb-3"></p>
                     <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Reservar</a>
+                        <a class="btn btn-primary"   href="javascript:void(0);" onclick="openModal('myModal2')">Mas info</a>
                     </div>
                 </div>
             </div>
@@ -195,13 +299,14 @@
                     <h4 class="text-white font-weight-medium px-3">Belleza de manos y pies</h4>
                     <p class="text-white px-3 mb-3"></p>
                     <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Reservar</a>
+                        <a class="btn btn-primary" href="javascript:void(0);" onclick="openModal('myModal7')">Mas info</a>
                     </div>
                 </div>
                 <!--HASTA ACÁ-->
             </div>
         </div>
     </div>
+    
     <!-- Service End -->
     <!-- Service Tratamientos Faciales Start -->
     <div class="container-fluid px-0 py-5 my-5">
@@ -218,7 +323,7 @@
                     <h4 class="text-white font-weight-medium px-3">  Punta de Diamante: Microexfoliación.</h4>
                     <p class="text-white px-3 mb-3"></p>
                     <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Reservar</a>
+                        <a class="btn btn-primary" href="javascript:void(0);" onclick="openModal('myModal8')">Mas info</a>
                     </div>
                 </div>
             </div>
@@ -228,7 +333,7 @@
                     <h4 class="text-white font-weight-medium px-3"> Limpieza profunda + Hidratación</h4>
                     <p class="text-white px-3 mb-3"></p>
                     <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Reservar</a>
+                        <a class="btn btn-primary" href="javascript:void(0);" onclick="openModal('myModal9')">Mas info</a>
                     </div>
                 </div>
             </div>
@@ -241,7 +346,7 @@
                         logrando resultados instantáneos de efecto lifting
                     </p>
                     <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Reservar</a>
+                        <a class="btn btn-primary" href="javascript:void(0);" onclick="openModal('myModal10')">Mas info</a>
                     </div>
                 </div>
                 <!--HASTA ACÁ-->
@@ -267,7 +372,7 @@
                         celulitis.
                     </p>
                     <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Reservar</a>
+                        <a class="btn btn-primary" href="javascript:void(0);" onclick="openModal('myModal11')">Mas info</a>
                     </div>
                 </div>
             </div>
@@ -281,7 +386,7 @@
                         linfático
                     </p>
                     <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Reservar</a>
+                        <a class="btn btn-primary" href="javascript:void(0);" onclick="openModal('myModal12')">Mas info</a>
                     </div>
                 </div>
             </div>
@@ -291,7 +396,7 @@
                     <h4 class="text-white font-weight-medium px-3">Criofrecuencias</h4>
                     <p class="text-white px-3 mb-3">produce un efecto de lifting instantáneo</p>
                     <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Reservar</a>
+                        <a class="btn btn-primary" href="javascript:void(0);" onclick="openModal('myModal13')">Mas info</a>
                     </div>
                 </div>
                 <!--HASTA ACÁ-->
@@ -302,12 +407,392 @@
                     <h4 class="text-white font-weight-medium px-3"> Ultracavitación</h4>
                     <p class="text-white px-3 mb-3">Técnica reductora</p>
                     <div class="w-100 bg-white text-center p-4">
-                        <a class="btn btn-primary" href="">Reservar</a>
+                        <a class="btn btn-primary" href="javascript:void(0);" onclick="openModal('myModal14')">Mas info</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Service End -->
+
+    <!-- Modal 1 -->
+    <div id="myModal1" class="modal1">
+        <div class="modal-content1">
+            <span class="close" onclick="closeModal('myModal1')">&times;</span>
+            <div class="image-container">
+                <img src="img/pestañas.jpg" alt="Imagen del Lifting de Pestañas">
+            </div>
+            <div class="details-container">
+                <h2 class="text-white bg-primary py-1 px-2">Lifting de Pestañas</h2>
+                <p>¿Te gustaría lucir unas pestañas perfectas sin necesidad de maquillaje? Con nuestro <strong>Lifting de Pestañas</strong>, realzamos tus pestañas naturales, dándoles una curvatura espectacular que resalta tu mirada.</p>
+                <p><strong>Precio:</strong> $300</p>
+                <p><strong>Cantidad de sesiones: </strong>1</p>
+                <h4>Medios de Pago:</h4>
+                <ul>
+                    <li>Tarjeta de crédito</li>
+                    <li>Tarjeta de débito</li>
+                    <li>Transferencia bancaria</li>
+                    <li>Pago en efectivo</li>
+                </ul>
+                <div class="modal-footer">
+                    <a href="Login.html" class="reserve-button">RESERVAR TURNO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div id="myModal2" class="modal1">
+        <div class="modal-content1">
+            <span class="close" onclick="closeModal('myModal2')">&times;</span>
+            <div class="image-container">
+                <img src="img/service-2.jpg">
+            </div>
+            <div class="details-container">
+                <h2 class="text-white bg-primary py-1 px-2">Depilacion facial</h2>
+                <p>¿Cansada de los vellos faciales no deseados que desentonan con tu belleza natural? Nuestra Depilación Facial es la solución perfecta para ti. En nuestro centro, ofrecemos un tratamiento de depilación facial que garantiza resultados impecables y una piel suave como la seda..</p>
+                <p><strong>Precio:</strong> $300</p>
+                <p><strong>Cantidad de sesiones: </strong>5</p>
+                <h4>Medios de Pago:</h4>
+                <ul>
+                    <li>Tarjeta de crédito</li>
+                    <li>Tarjeta de débito</li>
+                    <li>Transferencia bancaria</li>
+                    <li>Pago en efectivo</li>
+                </ul>
+                <div class="modal-footer">
+                    <a href="Login.html" class="reserve-button">RESERVAR TURNO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="myModal3" class="modal1">
+        <div class="modal-content1">
+            <span class="close" onclick="closeModal('myModal3')">&times;</span>
+            <div class="image-container">
+                <img src="img/service-1.jpg" alt="Imagen del Lifting de Pestañas">
+            </div>
+            <div class="details-container">
+                <h2 class="text-white bg-primary py-1 px-2">Anti stress</h2>
+                <p>¿Sientes que el estrés y las tensiones diarias te agobian? ¡Es hora de darle un respiro a tu cuerpo y mente con nuestro exclusivo masaje antiestrés!<br><br>
+                    En nuestro centro, ofrecemos una experiencia de relajación total que combina técnicas especializadas para liberar tu cuerpo de tensiones acumuladas. Nuestro masaje antiestrés no solo alivia el malestar físico, sino que también proporciona una profunda sensación de calma y bienestar.</p>
+                <p><strong>Precio:</strong> $300</p>
+                <p><strong>Cantidad de sesiones: </strong>1</p>
+                <h4>Medios de Pago:</h4>
+                <ul>
+                    <li>Tarjeta de crédito</li>
+                    <li>Tarjeta de débito</li>
+                    <li>Transferencia bancaria</li>
+                    <li>Pago en efectivo</li>
+                </ul>
+                <div class="modal-footer">
+                    <a href="Login.html" class="reserve-button">RESERVAR TURNO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <div id="myModal4" class="modal1">
+        <div class="modal-content1">
+            <span class="close" onclick="closeModal('myModal4')">&times;</span>
+            <div class="image-container">
+                <img src="img/service-2.jpg" alt="Imagen del Lifting de Pestañas">
+            </div>
+            <div class="details-container">
+                <h2 class="text-white bg-primary py-1 px-2">Descontracturante</h2>
+                <p>¿Sientes tensiones y dolores musculares acumulados? Nuestro masaje descontracturante es la solución ideal para liberar tu cuerpo del estrés y las molestias. Diseñado especialmente para relajar los músculos tensos y aliviar el dolor, este masaje se enfoca en las áreas de mayor tensión, utilizando técnicas profundas y efectivas que restablecen la movilidad y bienestar general.</p>
+                <p><strong>Precio:</strong> $300</p>
+                <p><strong>Cantidad de sesiones: </strong>1</p>
+                <h4>Medios de Pago:</h4>
+                <ul>
+                    <li>Tarjeta de crédito</li>
+                    <li>Tarjeta de débito</li>
+                    <li>Transferencia bancaria</li>
+                    <li>Pago en efectivo</li>
+                </ul>
+                <div class="modal-footer">
+                    <a href="Login.html" class="reserve-button">RESERVAR TURNO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- Modal 1 -->
+        <div id="myModal5" class="modal1">
+            <div class="modal-content1">
+                <span class="close" onclick="closeModal('myModal5')">&times;</span>
+                <div class="image-container">
+                    <img src="img/piedras.jpg" alt="Imagen del Lifting de Pestañas">
+                </div>
+                <div class="details-container">
+                    <h2 class="text-white bg-primary py-1 px-2">Masajes con piedras calientes</h2>
+                    <p>Déjate envolver por la experiencia única del masaje con piedras calientes, una técnica ancestral que combina el poder del calor con el arte del masaje para ofrecerte una profunda sensación de bienestar. Las piedras, cuidadosamente calentadas, se colocan sobre puntos estratégicos de tu cuerpo para liberar tensiones y mejorar la circulación sanguínea.</p>
+                    <p><strong>Precio:</strong> $300</p>
+                    <p><strong>Cantidad de sesiones: </strong>1</p>
+                    <h4>Medios de Pago:</h4>
+                    <ul>
+                        <li>Tarjeta de crédito</li>
+                        <li>Tarjeta de débito</li>
+                        <li>Transferencia bancaria</li>
+                        <li>Pago en efectivo</li>
+                    </ul>
+                    <div class="modal-footer">
+                        <a href="Login.html" class="reserve-button">RESERVAR TURNO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="myModal6" class="modal1">
+            <div class="modal-content1">
+                <span class="close" onclick="closeModal('myModal6')">&times;</span>
+                <div class="image-container">
+                    <img src="img/service-4.jpg" alt="Imagen del Lifting de Pestañas">
+                </div>
+                <div class="details-container">
+                    <h2 class="text-white bg-primary py-1 px-2">Circulatorios</h2>
+                    <p>¿Sientes que la tensión y el estrés están afectando tu bienestar? Descubre la experiencia transformadora de nuestros masajes circulatorios, diseñados para revitalizar tu cuerpo y mente.</p>
+                    <p><strong>Precio:</strong> $300</p>
+                    <p><strong>Cantidad de sesiones: </strong>1</p>
+                    <h4>Medios de Pago:</h4>
+                    <ul>
+                        <li>Tarjeta de crédito</li>
+                        <li>Tarjeta de débito</li>
+                        <li>Transferencia bancaria</li>
+                        <li>Pago en efectivo</li>
+                    </ul>
+                    <div class="modal-footer">
+                        <a href="Login.html" class="reserve-button">RESERVAR TURNO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="myModal7" class="modal1">
+            <div class="modal-content1">
+                <span class="close" onclick="closeModal('myModal7')">&times;</span>
+                <div class="image-container">
+                    <img src="img/manos.jpg" alt="Imagen del Lifting de Pestañas">
+                </div>
+                <div class="details-container">
+                    <h2 class="text-white bg-primary py-1 px-2">Belleza de manos y Pies</h2>
+                    <p>¿Te gustaría lucir unas manos y pies impecables que sean la envidia de todos? En nuestro salón, ofrecemos un servicio de belleza para manos y pies que combina lujo y cuidado personal para que te sientas radiante y renovada.</p>
+                    <p><strong>Precio:</strong> $300</p>
+                    <p><strong>Cantidad de sesiones: </strong>1</p>
+                    <h4>Medios de Pago:</h4>
+                    <ul>
+                        <li>Tarjeta de crédito</li>
+                        <li>Tarjeta de débito</li>
+                        <li>Transferencia bancaria</li>
+                        <li>Pago en efectivo</li>
+                    </ul>
+                    <div class="modal-footer">
+                        <a href="Login.html" class="reserve-button">RESERVAR TURNO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="myModal8" class="modal1">
+            <div class="modal-content1">
+                <span class="close" onclick="closeModal('myModal8')">&times;</span>
+                <div class="image-container">
+                    <img src="img/service-1.jpg" alt="Imagen del Lifting de Pestañas">
+                </div>
+                <div class="details-container">
+                    <h2 class="text-white bg-primary py-1 px-2">Punta de diamante: Microexfoliacion</h2>
+                    <p>Descubre el secreto de una piel radiante con nuestro exclusivo Tratamiento Facial con Punta de Diamante. Este innovador procedimiento de microexfoliación utiliza la tecnología más avanzada para rejuvenecer tu piel de manera efectiva y segura.</p>
+                    <p><strong>Precio:</strong> $300</p>
+                    <p><strong>Cantidad de sesiones: </strong>1</p>
+                    <h4>Medios de Pago:</h4>
+                    <ul>
+                        <li>Tarjeta de crédito</li>
+                        <li>Tarjeta de débito</li>
+                        <li>Transferencia bancaria</li>
+                        <li>Pago en efectivo</li>
+                    </ul>
+                    <div class="modal-footer">
+                        <a href="Login.html" class="reserve-button">RESERVAR TURNO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="myModal9" class="modal1">
+            <div class="modal-content1">
+                <span class="close" onclick="closeModal('myModal9')">&times;</span>
+                <div class="image-container">
+                    <img src="img/service-2.jpg" alt="Imagen del Lifting de Pestañas">
+                </div>
+                <div class="details-container">
+                    <h2 class="text-white bg-primary py-1 px-2">Limpieza profunda + Hidratacion</h2>
+                    <p><strong>¿Buscas una piel radiante y fresca? </strong>Nuestro tratamiento facial de limpieza profunda combinado con una intensa hidratación es justo lo que necesitas. Comenzamos con una limpieza profunda que elimina impurezas, células muertas y el exceso de sebo, dejando tu piel completamente limpia y preparada para recibir los beneficios de nuestra hidratación intensiva.</p>
+                    <p><strong>Precio:</strong> $300</p>
+                    <p><strong>Cantidad de sesiones: </strong>1</p>
+                    <h4>Medios de Pago:</h4>
+                    <ul>
+                        <li>Tarjeta de crédito</li>
+                        <li>Tarjeta de débito</li>
+                        <li>Transferencia bancaria</li>
+                        <li>Pago en efectivo</li>
+                    </ul>
+                    <div class="modal-footer">
+                        <a href="Login.html" class="reserve-button">RESERVAR TURNO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="myModal10" class="modal1">
+            <div class="modal-content1">
+                <span class="close" onclick="closeModal('myModal10')">&times;</span>
+                <div class="image-container">
+                    <img src="img/pricing.jpg" alt="Imagen del Lifting de Pestañas">
+                </div>
+                <div class="details-container">
+                    <h2 class="text-white bg-primary py-1 px-2">Ciro frecuencia facial</h2>
+                    <p><strong>Descubre el poder de la Criofrecuencia Facial, una innovadora técnica que utiliza el <strong>“SHOCK TÉRMICO” </strong>para ofrecer resultados instantáneos de efecto lifting. Este tratamiento revolucionario combina la frescura del frío con la energía de radiofrecuencia para estimular la producción de colágeno, tensar y rejuvenecer tu piel.</p>
+                    <p><strong>Precio:</strong> $300</p>
+                    <p><strong>Cantidad de sesiones: </strong>1</p>
+                    <h4>Medios de Pago:</h4>
+                    <ul>
+                        <li>Tarjeta de crédito</li>
+                        <li>Tarjeta de débito</li>
+                        <li>Transferencia bancaria</li>
+                        <li>Pago en efectivo</li>
+                    </ul>
+                    <div class="modal-footer">
+                        <a href="Login.html" class="reserve-button">RESERVAR TURNO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+ <!-- Modal 1 -->
+<div id="myModal11" class="modal1">
+    <div class="modal-content1">
+        <span class="close" onclick="closeModal('myModal11')">&times;</span>
+        <div class="image-container">
+            <img src="img/service-1.jpg" alt="Imagen del VelaSlim">
+        </div>
+        <div class="details-container">
+            <h2 class="text-white bg-primary py-1 px-2">VelaSlim</h2>
+            <p><strong>¿Buscas una solución efectiva para reducir la circunferencia corporal y combatir la celulitis?</strong> ¡No busques más! Nuestro innovador tratamiento facial VelaSlim está diseñado para ayudarte a alcanzar una figura esbelta y una piel suave, sin imperfecciones.</p>
+            <p><strong>Precio:</strong> $300</p>
+            <p><strong>Cantidad de sesiones: </strong>1</p>
+            <h4>Medios de Pago:</h4>
+            <ul>
+                <li>Tarjeta de crédito</li>
+                <li>Tarjeta de débito</li>
+                <li>Transferencia bancaria</li>
+                <li>Pago en efectivo</li>
+            </ul>
+            <div class="modal-footer">
+                <a href="Login.html" class="reserve-button">RESERVAR TURNO</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myModal12" class="modal1">
+    <div class="modal-content1">
+        <span class="close" onclick="closeModal('myModal12')">&times;</span>
+        <div class="image-container">
+            <img src="img/service-2.jpg" alt="Imagen del DermoHealth">
+        </div>
+        <div class="details-container">
+            <h2 class="text-white bg-primary py-1 px-2">DermoHealth</h2>
+            <p><strong>Descubre el poder del tratamiento DermoHealth, diseñado para revitalizar y rejuvenecer tu piel de manera efectiva. Este innovador tratamiento moviliza los distintos tejidos de la piel, estimulando la microcirculación y promoviendo un drenaje linfático profundo. Ideal para combatir la celulitis y mejorar la apariencia de tu piel, DermoHealth ofrece una solución avanzada que deja tu piel más firme, suave y radiante. ¡Dale a tu piel el cuidado que merece y siéntete renovada con cada sesión!</strong></p>
+            <p><strong>Precio:</strong> $300</p>
+            <p><strong>Cantidad de sesiones: </strong>1</p>
+            <h4>Medios de Pago:</h4>
+            <ul>
+                <li>Tarjeta de crédito</li>
+                <li>Tarjeta de débito</li>
+                <li>Transferencia bancaria</li>
+                <li>Pago en efectivo</li>
+            </ul>
+            <div class="modal-footer">
+                <a href="Login.html" class="reserve-button">RESERVAR TURNO</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myModal13" class="modal1">
+    <div class="modal-content1">
+        <span class="close" onclick="closeModal('myModal13')">&times;</span>
+        <div class="image-container">
+            <img src="img/pricing.jpg" alt="Imagen del Lifting de Pestañas">
+        </div>
+        <div class="details-container">
+            <h2 class="text-white bg-primary py-1 px-2">Criofrecuencias</h2>
+            <p><strong>¿Buscas una forma eficaz de rejuvenecer tu piel y combatir los signos del envejecimiento sin recurrir a procedimientos invasivos?</strong> El tratamiento de Criofrecuencia es tu solución ideal. Este innovador procedimiento combina frío y radiofrecuencia para ofrecerte resultados sorprendentes en términos de firmeza y elasticidad.</p>
+            <p><strong>Precio:</strong> $300</p>
+            <p><strong>Cantidad de sesiones: </strong>1</p>
+            <h4>Medios de Pago:</h4>
+            <ul>
+                <li>Tarjeta de crédito</li>
+                <li>Tarjeta de débito</li>
+                <li>Transferencia bancaria</li>
+                <li>Pago en efectivo</li>
+            </ul>
+            <div class="modal-footer">
+                <a href="Login.html" class="reserve-button">RESERVAR TURNO</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myModal14" class="modal1">
+    <div class="modal-content1">
+        <span class="close" onclick="closeModal('myModal14')">&times;</span>
+        <div class="image-container">
+            <img src="img/service-4.jpg" alt="Imagen del Lifting de Pestañas">
+        </div>
+        <div class="details-container">
+            <h2 class="text-white bg-primary py-1 px-2"> Ultracavitación</h2>
+            <p>La Ultracavitación es una técnica de reducción corporal no invasiva que utiliza ondas ultrasónicas para eliminar la grasa localizada. Esta técnica es eficaz para tratar áreas específicas del cuerpo donde el tejido adiposo es más resistente a las dietas y al ejercicio físico.</p>
+            <p><strong>Precio:</strong> $300</p>
+            <p><strong>Cantidad de sesiones: </strong>1</p>
+            <h4>Medios de Pago:</h4>
+            <ul>
+                <li>Tarjeta de crédito</li>
+                <li>Tarjeta de débito</li>
+                <li>Transferencia bancaria</li>
+                <li>Pago en efectivo</li>
+            </ul>
+            <div class="modal-footer">
+                <a href="Login.html" class="reserve-button">RESERVAR TURNO</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        // Cierra el modal si el usuario hace clic fuera del contenido del modal
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal1')) {
+                closeModal('myModal1');
+                closeModal('myModal2');
+                closeModal('myModal3');
+                closeModal('myModal4');
+                closeModal('myModal5');
+                closeModal('myModal6');
+                closeModal('myModal7');
+                closeModal('myModal8');
+                closeModal('myModal9');
+                closeModal('myModal10');
+                closeModal('myModal11');
+                closeModal('myModal12');
+                closeModal('myModal13');
+                closeModal('myModal14');
+            }
+        }
+    </script>
     <!-- Service End -->
     <!-- Testimonial Start -->
 <div class="container-fluid py-5">
