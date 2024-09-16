@@ -17,10 +17,10 @@ public class ClienteDTO {
      private String nombre;
     
 
-    public ClientePerfilDTO() {
+    public ClienteDTO() {
     }
 
-    public ClientePerfilDTO(Long id, String nombre) {
+    public ClienteDTO(Long id, String nombre) {
         this.id = id;
         this.nombre = nombre;
         
