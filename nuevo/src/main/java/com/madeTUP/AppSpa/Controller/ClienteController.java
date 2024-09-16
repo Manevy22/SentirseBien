@@ -155,4 +155,19 @@ public ResponseEntity<Map<String, Object>> loginCliente(@RequestBody ClienteLogi
         perfilDTO.setListaSesiones(listaSesionDTO);
         return ResponseEntity.ok(perfilDTO);
     }
+    
+    @CrossOrigin(origins = "*")
+@GetMapping("/clientes/traerClientes")
+public ResponseEntity<List<ClienteDTO>> getClientes() {
+    List<Cliente> clientes = servis.getClientes();
+    List<ClienteDTO> clienteDTOs = new ArrayList<>();
+    
+    for (Cliente cliente : clientes) {
+        ClienteDTO clienteDTO = new ClienteDTO(cliente.getId(), cliente.getNombre());
+        clienteDTOs.add(clienteDTO);
+    }
+    
+    return new ResponseEntity<>(clienteDTOs, HttpStatus.OK);
+}
+
 }
