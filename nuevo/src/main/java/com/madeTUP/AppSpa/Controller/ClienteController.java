@@ -6,6 +6,7 @@ package com.madeTUP.AppSpa.Controller;
 
 import com.madeTUP.AppSpa.DTO.ClienteLoginDTO;
 import com.madeTUP.AppSpa.DTO.ClientePerfilDTO;
+import com.madeTUP.AppSpa.DTO.ClienteDTO;
 import com.madeTUP.AppSpa.DTO.SesionDTO;
 import com.madeTUP.AppSpa.Model.Cliente;
 import com.madeTUP.AppSpa.Model.Consulta;
