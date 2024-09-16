@@ -40,7 +40,7 @@ document.querySelector('#formulario-registro').addEventListener('submit', functi
             return response.text().then(message => {
                 alert('Hubo un problema: ' + message);
                 // Redirige al usuario a la página de inicio de sesión en caso de error
-                window.location.href = 'login.html';
+                window.location.href = 'Login.html';
             });
         }
     })
