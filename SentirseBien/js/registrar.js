@@ -1,5 +1,5 @@
-// Selecciona el formulario y agrega un evento de envío
-document.querySelector('form').addEventListener('submit', function (event) {
+// Selecciona el formulario por ID
+document.querySelector('#formulario-registro').addEventListener('submit', function (event) {
     event.preventDefault(); // Evita el envío normal del formulario
 
     // Verifica si las contraseñas coinciden
@@ -10,11 +10,11 @@ document.querySelector('form').addEventListener('submit', function (event) {
     // Crea un objeto con los datos del formulario
     const formData = {
         id: 0,
-        nombre: document.querySelector('input[placeholder="Nombre"]').value,
-        apellido: document.querySelector('input[placeholder="Apellido"]').value,
-        correo: document.querySelector('input[placeholder="Email"]').value,
+        nombre: document.querySelector('input[name="nombre"]').value,
+        apellido: document.querySelector('input[name="apellido"]').value,
+        correo: document.querySelector('input[name="email"]').value,
         contrasenia: document.getElementById('password').value,
-        nombre_usuario: document.querySelector('input[placeholder="Nombre de Usuario"]').value,
+        nombre_usuario: document.querySelector('input[name="nombreUsuario"]').value,
         listaSesiones: [],
         listaConsultas: [],
         listaServicio: []
