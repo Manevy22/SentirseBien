@@ -29,18 +29,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function displayProfile(profile) {
-        const sessionsBody = document.querySelector('.lessons tbody');
-        sessionsBody.innerHTML = profile.listaPer_Ses.map(session => `
+    const sessionsBody = document.querySelector('.lessons tbody');
+    sessionsBody.innerHTML = profile.listaPer_Ses.map(session => {
+        // Convertir la fecha al objeto Date en UTC
+        const date = new Date(session.fecha);
+        // Convertir a la fecha local en la zona horaria del navegador
+        const localDate = date.toLocaleDateString('es-ES', {
+            timeZone: 'UTC',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        });
+        return `
             <tr data-id="${session.idCliente}">
                 <td>${session.idCliente}</td>
                 <td>${session.nombreCliente}</td>
                 <td>${session.servicio}</td>
-                <td>${new Date(session.fecha).toLocaleDateString()}</td>
+                <td>${localDate}</td>
                 <td>$${session.costo.toFixed(2)}</td>
                 <td>${session.asistencia ? 'Finalizado' : 'Pendiente'}</td>
             </tr>
-        `).join('');
-    }
+        `;
+    }).join('');
+}
+
 
     // Filtrar las sesiones en la tabla según el ID del cliente
     document.getElementById('searchInput').addEventListener('input', function(event) {
