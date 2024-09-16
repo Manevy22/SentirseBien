@@ -159,7 +159,7 @@ public ResponseEntity<Map<String, Object>> loginCliente(@RequestBody ClienteLogi
     
     @CrossOrigin(origins = "*")
 @GetMapping("/clientes/traerClientes")
-public ResponseEntity<List<ClienteDTO>> getClientes() {
+public ResponseEntity<List<ClienteDTO>> getClientesD() {
     List<Cliente> clientes = servis.getClientes();
     List<ClienteDTO> clienteDTOs = new ArrayList<>();
     
