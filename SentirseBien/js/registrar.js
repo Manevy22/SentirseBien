@@ -9,14 +9,14 @@ document.querySelector('form').addEventListener('submit', function (event) {
 
     // Crea un objeto con los datos del formulario
     const formData = {
-        id:0,
+        id: 0,
         nombre: document.querySelector('input[placeholder="Nombre"]').value,
         apellido: document.querySelector('input[placeholder="Apellido"]').value,
         correo: document.querySelector('input[placeholder="Email"]').value,
         contrasenia: document.getElementById('password').value,
         nombre_usuario: document.querySelector('input[placeholder="Nombre de Usuario"]').value,
-        listaSesiones: [],   
-        listaConsultas: [],  
+        listaSesiones: [],
+        listaConsultas: [],
         listaServicio: []
     };
 
@@ -30,21 +30,25 @@ document.querySelector('form').addEventListener('submit', function (event) {
     // Realiza la petición POST a la API
     fetch('https://overflowing-magic-production.up.railway.app/clientes/crear', requestOptions)
     .then(response => {
-if (response.status === 201) {
+        if (response.status === 201) {
             return response.json().then(data => {
                 alert('Usuario creado exitosamente.');
                 // Redirige al usuario a la página de inicio de sesión
                 window.location.href = 'login.html';
             });
-        } else if (response.status === 409) {
-            return response.text().then(message => alert('Error: ' + message));
         } else {
-            return response.text().then(message => alert('Hubo un problema: ' + message));
+            return response.text().then(message => {
+                alert('Hubo un problema: ' + message);
+                // Redirige al usuario a la página de inicio de sesión en caso de error
+                window.location.href = 'login.html';
+            });
         }
     })
     .catch(error => {
         console.error('Error:', error);
         alert('Hubo un problema al crear el usuario.');
+        // Redirige al usuario a la página de inicio de sesión en caso de error
+        window.location.href = 'login.html';
     });
 
 });
@@ -60,3 +64,4 @@ function validatePasswords() {
     }
     return true;
 }
+
