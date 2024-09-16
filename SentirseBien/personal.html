@@ -286,6 +286,25 @@
                 });
                 
                 </script>
+                <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('searchInput').addEventListener('input', function(event) {
+    const searchTerm = event.target.value.trim().toLowerCase(); // Obtener el término de búsqueda en minúsculas
+    const rows = document.querySelectorAll('.lessons tbody tr');
+
+    rows.forEach(row => {
+        const clientId = row.dataset.id.toLowerCase(); // Obtener el ID del cliente en minúsculas
+        if (searchTerm === '' || clientId === searchTerm) {
+            row.style.display = ''; // Mostrar fila si el término de búsqueda es vacío o coincide exactamente
+        } else {
+            row.style.display = 'none'; // Ocultar fila si no coincide
+        }
+    });
+});
+
+            loadPersonalProfile();
+        });
+    </script>
             <!-- Buscar Clientes -->
             <div class="lessons">
                 <h3>Sesiones <span class="search-container"><i class="fa fa-search" id="searchIcon"></i><input type="text" id="searchInput" placeholder="Buscar..."></span></h3>
@@ -593,7 +612,7 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="js/scriptChat.js"></script>
-<!--    <script src="js/personal.js"></script>-->
+ <script src="js/personal.js"></script>
     <style>
         select#appointmentService {
         font-size: 20px; /* Tamaño de letra para el desplegable */
@@ -757,71 +776,7 @@
         });
     });
 </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const authToken = localStorage.getItem('authToken');
-            const personalId = localStorage.getItem('personalId');
 
-            if (!authToken || !personalId) {
-                window.location.href = 'login.html';
-                return;
-            }
-
-            async function loadPersonalProfile() {
-                try {
-                    const response = await fetch(`https://overflowing-magic-production.up.railway.app/personal/perfil?PersonalId=${personalId}`, {
-                        method: 'GET',
-                        headers: {
-                            'Authorization': `Bearer ${authToken}`
-                        }
-                    });
-
-                    if (response.ok) {
-                        const data = await response.json();
-                        displayProfile(data);
-                    } else {
-                        console.error('Error al cargar perfil:', response.statusText);
-                    }
-                } catch (error) {
-                    console.error('Error al conectarse al servidor:', error);
-                }
-            }
-
-            function displayProfile(profile) {
-                const sessionsBody = document.querySelector('.lessons tbody');
-                sessionsBody.innerHTML = profile.listaPer_Ses.map(session => {
-                    const date = new Date(session.fecha);
-                    const localDate = date.toLocaleDateString('es-ES');
-                    return `
-                        <tr data-id="${session.idCliente}">
-                            <td>${session.idCliente}</td>
-                            <td>${session.nombreCliente}</td>
-                            <td>${session.servicio}</td>
-                            <td>${localDate}</td>
-                            <td>$${session.costo.toFixed(2)}</td>
-                            <td>${session.asistencia ? 'Finalizado' : 'Pendiente'}</td>
-                        </tr>
-                    `;
-                }).join('');
-            }
-
-            document.getElementById('searchInput').addEventListener('input', function(event) {
-                const searchTerm = event.target.value.toLowerCase();
-                const rows = document.querySelectorAll('.lessons tbody tr');
-
-                rows.forEach(row => {
-                    const clientId = row.dataset.id.toLowerCase();
-                    if (clientId.includes(searchTerm)) {
-                        row.style.display = '';
-                    } else {
-                        row.style.display = 'none';
-                    }
-                });
-            });
-
-            loadPersonalProfile();
-        });
-    </script>
 
 
 </body>
