@@ -30,8 +30,12 @@ document.querySelector('form').addEventListener('submit', function (event) {
     // Realiza la petición POST a la API
     fetch('https://overflowing-magic-production.up.railway.app/clientes/crear', requestOptions)
     .then(response => {
-        if (response.status === 201) {
-            return response.json().then(data => alert('Usuario creado exitosamente.'));
+if (response.status === 201) {
+            return response.json().then(data => {
+                alert('Usuario creado exitosamente.');
+                // Redirige al usuario a la página de inicio de sesión
+                window.location.href = 'login.html';
+            });
         } else if (response.status === 409) {
             return response.text().then(message => alert('Error: ' + message));
         } else {
