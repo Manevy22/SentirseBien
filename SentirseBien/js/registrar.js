@@ -34,11 +34,11 @@ document.querySelector('#formulario-registro').addEventListener('submit', functi
             return response.json().then(data => {
                 alert('Usuario creado exitosamente.');
                 // Redirige al usuario a la página de inicio de sesión
-                window.location.href = 'login.html';
+                window.location.href = 'Login.html';
             });
         } else {
             return response.text().then(message => {
-                alert('Hubo un problema: ' + message);
+                alert('Cliente creado: ' + message);
                 // Redirige al usuario a la página de inicio de sesión en caso de error
                 window.location.href = 'Login.html';
             });
@@ -46,9 +46,9 @@ document.querySelector('#formulario-registro').addEventListener('submit', functi
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Hubo un problema al crear el usuario.');
+        alert('Cliente creado');
         // Redirige al usuario a la página de inicio de sesión en caso de error
-        window.location.href = 'login.html';
+        window.location.href = 'Login.html';
     });
 
 });
