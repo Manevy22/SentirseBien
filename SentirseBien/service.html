@@ -126,6 +126,17 @@
             justify-content: center;
             margin-top: 20px;
         }
+         @media (max-width: 768px) {
+        .modal-content1 {
+            width: 95%; /* Aumenta el ancho en pantallas más pequeñas */
+            flex-direction: column; /* Asegura que el contenido se apile verticalmente */
+        }
+
+        .image-container img {
+            max-width: 100%; /* Ajusta la imagen al ancho del contenedor */
+            height: auto; /* Permite que la altura se ajuste proporcionalmente */
+        }
+    }
     </style>
 </head>
 
