@@ -754,7 +754,7 @@
         clientes.forEach(cliente => {
             const option = document.createElement('option');
             option.value = cliente.id;  // Aquí va el ID del cliente
-            option.textContent = cliente.nombre;  // Aquí va el nombre del cliente
+            option.textContent = `${cliente.nombre} (${cliente.id})`;  // Aquí va el nombre del cliente
             clienteSelect.appendChild(option);
         });
     }
