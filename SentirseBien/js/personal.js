@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function displayProfile(profile) {
         const sessionsBody = document.querySelector('.lessons tbody');
         sessionsBody.innerHTML = profile.listaPer_Ses.map(session => `
-            <tr>
+            <tr data-id="${session.idCliente}">
                 <td>${session.idCliente}</td>
                 <td>${session.nombreCliente}</td>
                 <td>${session.servicio}</td>
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const rows = document.querySelectorAll('.lessons tbody tr');
 
         rows.forEach(row => {
-            const clientId = row.querySelector('td:first-child').textContent.toLowerCase();
+            const clientId = row.dataset.id.toLowerCase();
             if (clientId.includes(searchTerm)) {
                 row.style.display = '';
             } else {
