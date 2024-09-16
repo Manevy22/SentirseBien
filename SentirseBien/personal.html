@@ -140,152 +140,7 @@
                   </ul>
                 </div>
               </div>
-              <script>const calendarBody = document.querySelector('.days');
-                const currentDate = document.querySelector('.current-date');
-                const prevNextIcon = document.querySelectorAll('.icons span');
-                const modal = document.getElementById("modal");
-                const closeModal = document.querySelector(".close");
-                const sessionList = document.getElementById("session-list");
-                
-                let date = new Date();
-                let currYear = date.getFullYear();
-                let currMonth = date.getMonth();
-                
-                const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-                
-                function renderCalendar() {
-                    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay();
-                    let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
-                    let lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay();
-                    let lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
-                
-                    let liTag = "";
-                
-                    for (let i = firstDayofMonth; i > 0; i--) {
-                        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
-                    }
-
-                    for (let i = 1; i <= lastDateofMonth; i++) {
-                               let formattedMonth = (currMonth + 1).toString().padStart(2, '0');
-                               let formattedDay = i.toString().padStart(2, '0');
-                               let formattedDate = `${currYear}-${formattedMonth}-${formattedDay}`;
-                       
-                               let isToday = i === date.getDate() && currMonth === new Date().getMonth()
-                                             && currYear === new Date().getFullYear() ? "active" : "";
-                               liTag += `<li class="${isToday}" data-date="${formattedDate}">${i}</li>`;
-                       
-                    }
-                
-                    for (let i = lastDayofMonth; i < 6; i++) {
-                        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
-                    }
-                    currentDate.innerText = `${months[currMonth]} ${currYear}`;
-                    calendarBody.innerHTML = liTag;
-                
-                    // Agregar event listener a cada día
-                    const days = document.querySelectorAll('.days li:not(.inactive)');
-                   
-                    days.forEach(day => {
-                        day.addEventListener('click', (e) => {
-                            const selectedDate = e.target.getAttribute('data-date');
-                            showModal(selectedDate);
-                        });
-                    });
-                }
-                
-                function showModal(date) {
-                    
-                    
-                    fetch(`https://overflowing-magic-production.up.railway.app/Sesion/MostrarFecha?fecha=${date }`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error en la respuesta del servidor');
-            }
-            return response.json();
-        })
-        .then(sessions => {
-            sessionList.innerHTML = ''; // Limpiar la lista antes de agregar nuevas sesiones
-
-            sessions.forEach(session => {
-                const listItem = document.createElement('li');
-                listItem.innerHTML = `
-
-                Cliente: ${session.nombreCliente}<br>
-                Servicio: ${session.servicio}<br>
-                Asistencia: 
-           <span style="color: ${session.asistencia ? 'green' : 'red'};">
-        ${session.asistencia ? 'CONFIRMADO' : 'CANCELADO'}
-    </span>
-            `;
-            if (session.asistencia) {
-    const cancelButton = document.createElement('button');
-   cancelButton.textContent = 'Cancelar Turno';
-    cancelButton.style.color = 'white';  
-    cancelButton.style.borderRadius = '5px';
-    cancelButton.style.border = 'none';  
-    cancelButton.style.padding = '6px';  ; // Añadir un margen para separarlo del texto
-    cancelButton.style.background='#F9A392';
-    cancelButton.onclick = function() {
-        fetch(`https://overflowing-magic-production.up.railway.app/Sesion/cancelarAsistencia/${session.idA}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Actualiza la interfaz de usuario si la cancelación fue exitosa
-                listItem.innerHTML = `
-                    Cliente: ${session.nombreCliente}<br>
-                    Servicio: ${session.servicio}<br>
-                    Asistencia: <span style="color: red;">CANCELADO</span>
-                `;
-            } else {
-                alert('Error al cancelar la asistencia');
-            }
-        })
-        .catch(error => console.error('Error:', error));
-    };
-
-    listItem.appendChild(cancelButton);
-}
-                sessionList.appendChild(listItem);
-            });
-
-            modal.style.display = "block";
-        })
-        .catch(error => console.error('Error al obtener las sesiones:', error));
-            }
-                closeModal.addEventListener('click', () => {
-                    modal.style.display = "none";
-                });
-                
-                window.addEventListener('click', (e) => {
-                    if (e.target == modal) {
-                        modal.style.display = "none";
-                    }
-                });
-                
-                renderCalendar();
-                
-               prevNextIcon.forEach(icon => {
-    icon.addEventListener("click", () => {
-        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
-
-        if (currMonth < 0 || currMonth > 11) {
-            date = new Date(currYear, currMonth);
-            currYear = date.getFullYear();
-            currMonth = date.getMonth();
-        }
-
-        // Vuelve a renderizar el calendario con el mes actualizado
-        renderCalendar();
-    });
-                });
-                
-                </script>
+             
             <!-- Buscar Clientes -->
             <div class="lessons">
                 <h3>Sesiones <span class="search-container"><i class="fa fa-search" id="searchIcon"></i><input type="text" id="searchInput" placeholder="Buscar..."></span></h3>
@@ -757,7 +612,152 @@
         });
     });
 </script>
+ <script>const calendarBody = document.querySelector('.days');
+                const currentDate = document.querySelector('.current-date');
+                const prevNextIcon = document.querySelectorAll('.icons span');
+                const modal = document.getElementById("modal");
+                const closeModal = document.querySelector(".close");
+                const sessionList = document.getElementById("session-list");
+                
+                let date = new Date();
+                let currYear = date.getFullYear();
+                let currMonth = date.getMonth();
+                
+                const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                
+                function renderCalendar() {
+                    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay();
+                    let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
+                    let lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay();
+                    let lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
+                
+                    let liTag = "";
+                
+                    for (let i = firstDayofMonth; i > 0; i--) {
+                        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+                    }
 
+                    for (let i = 1; i <= lastDateofMonth; i++) {
+                               let formattedMonth = (currMonth + 1).toString().padStart(2, '0');
+                               let formattedDay = i.toString().padStart(2, '0');
+                               let formattedDate = `${currYear}-${formattedMonth}-${formattedDay}`;
+                       
+                               let isToday = i === date.getDate() && currMonth === new Date().getMonth()
+                                             && currYear === new Date().getFullYear() ? "active" : "";
+                               liTag += `<li class="${isToday}" data-date="${formattedDate}">${i}</li>`;
+                       
+                    }
+                
+                    for (let i = lastDayofMonth; i < 6; i++) {
+                        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
+                    }
+                    currentDate.innerText = `${months[currMonth]} ${currYear}`;
+                    calendarBody.innerHTML = liTag;
+                
+                    // Agregar event listener a cada día
+                    const days = document.querySelectorAll('.days li:not(.inactive)');
+                   
+                    days.forEach(day => {
+                        day.addEventListener('click', (e) => {
+                            const selectedDate = e.target.getAttribute('data-date');
+                            showModal(selectedDate);
+                        });
+                    });
+                }
+                
+                function showModal(date) {
+                    
+                    
+                    fetch(`https://overflowing-magic-production.up.railway.app/Sesion/MostrarFecha?fecha=${date }`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la respuesta del servidor');
+            }
+            return response.json();
+        })
+        .then(sessions => {
+            sessionList.innerHTML = ''; // Limpiar la lista antes de agregar nuevas sesiones
+
+            sessions.forEach(session => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+
+                Cliente: ${session.nombreCliente}<br>
+                Servicio: ${session.servicio}<br>
+                Asistencia: 
+           <span style="color: ${session.asistencia ? 'green' : 'red'};">
+        ${session.asistencia ? 'CONFIRMADO' : 'CANCELADO'}
+    </span>
+            `;
+            if (session.asistencia) {
+    const cancelButton = document.createElement('button');
+   cancelButton.textContent = 'Cancelar Turno';
+    cancelButton.style.color = 'white';  
+    cancelButton.style.borderRadius = '5px';
+    cancelButton.style.border = 'none';  
+    cancelButton.style.padding = '6px';  ; // Añadir un margen para separarlo del texto
+    cancelButton.style.background='#F9A392';
+    cancelButton.onclick = function() {
+        fetch(`https://overflowing-magic-production.up.railway.app/Sesion/cancelarAsistencia/${session.idA}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Actualiza la interfaz de usuario si la cancelación fue exitosa
+                listItem.innerHTML = `
+                    Cliente: ${session.nombreCliente}<br>
+                    Servicio: ${session.servicio}<br>
+                    Asistencia: <span style="color: red;">CANCELADO</span>
+                `;
+            } else {
+                alert('Error al cancelar la asistencia');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    };
+
+    listItem.appendChild(cancelButton);
+}
+                sessionList.appendChild(listItem);
+            });
+
+            modal.style.display = "block";
+        })
+        .catch(error => console.error('Error al obtener las sesiones:', error));
+            }
+                closeModal.addEventListener('click', () => {
+                    modal.style.display = "none";
+                });
+                
+                window.addEventListener('click', (e) => {
+                    if (e.target == modal) {
+                        modal.style.display = "none";
+                    }
+                });
+                
+                renderCalendar();
+                
+               prevNextIcon.forEach(icon => {
+    icon.addEventListener("click", () => {
+        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+        if (currMonth < 0 || currMonth > 11) {
+            date = new Date(currYear, currMonth);
+            currYear = date.getFullYear();
+            currMonth = date.getMonth();
+        }
+
+        // Vuelve a renderizar el calendario con el mes actualizado
+        renderCalendar();
+    });
+                });
+                
+                </script>
 </body>
 
 </html>
