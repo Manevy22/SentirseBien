@@ -249,13 +249,13 @@ sup {
 
 a {
   color: #F9A392;
-  text-decoration: none !important;
-  background-color: transparent !important;
+  text-decoration: none;
+  background-color: transparent;
 }
 
 a:hover {
   color: #35bcc9;
-  text-decoration: underline !important;
+  text-decoration: underline;
 }
 
 a:not([href]):not([class]) {
