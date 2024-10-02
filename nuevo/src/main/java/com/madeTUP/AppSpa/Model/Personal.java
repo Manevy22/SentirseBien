@@ -2,12 +2,15 @@ package com.madeTUP.AppSpa.Model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,21 +32,19 @@ public class Personal {
     private String correo;
     private String nombre_usuario;
     private String contrasenia;
-    
-    @OneToOne
-    @JoinColumn(name = "servicio_id")  // Define la columna que será clave aaforánea
-    private Servicio servicio;  // Cambiado a una relación OneToOne con Servicio
+    @OneToMany(mappedBy="personal", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Servicio> listaServicio;
 
     public Personal() {
     }
 
-    public Personal(Long id, String nombre, String apellido, String correo, String nombre_usuario, String contrasenia, Servicio servicio) {
+    public Personal(Long id, String nombre, String apellido, String correo, String nombre_usuario, String contrasenia, List<Servicio> listaServicio) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.nombre_usuario = nombre_usuario;
         this.contrasenia = contrasenia;
-        this.servicio = servicio;
+        this.listaServicio=listaServicio;
     }
 }
