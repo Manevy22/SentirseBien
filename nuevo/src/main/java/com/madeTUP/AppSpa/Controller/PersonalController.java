@@ -129,25 +129,24 @@ public ResponseEntity<PersonalPerfilDTO> getPerfilPersonal(@RequestParam Long Pe
             listaSesionesDos.add(s);
         }
     } else {
-        // Obtener las sesiones que coincidan con el servicio que presta el personal
-        Servicio servicioPersonal = personal1.getServicio(); // Ahora es un servicio único (OneToOne)
-
-        // Obtener todas las sesiones
+        // Obtener las sesiones que coincidan con los servicios que presta el personal
         List<Sesion> listaSesiones = servisSesion.getServicio(); // O consulta optimizada
 
-        // Filtrar las sesiones que coincidan con el servicio que presta el personal
         for (Sesion sesion : listaSesiones) {
-            if (sesion.getServicio().getId().equals(servicioPersonal.getId())) { // Compara IDs de servicio
-                SesionPersonalDTO s = new SesionPersonalDTO(
-                    sesion.getId(),
-                    sesion.getCliente().getId(),
-                    sesion.getCliente().getNombre(),
-                    sesion.getServicio().getNombreServicio(),
-                    sesion.getFecha(),
-                    sesion.getCosto(),
-                    sesion.getAsistencia()
-                );
-                listaSesionesDos.add(s);
+            for (Servicio servi : personal1.getListaServicio()) {
+                if (sesion.getServicio().getId().equals(servi.getId())) { // Usar equals en lugar de ==
+                    SesionPersonalDTO s = new SesionPersonalDTO(
+                        sesion.getId(),
+                        sesion.getCliente().getId(),
+                        sesion.getCliente().getNombre(),
+                        sesion.getServicio().getNombreServicio(),
+                        sesion.getFecha(),
+                        sesion.getCosto(),
+                        sesion.getAsistencia()
+                    );
+                    listaSesionesDos.add(s);
+                    break; // Salir del bucle interno cuando se encuentra el servicio
+                }
             }
         }
     }
@@ -157,5 +156,6 @@ public ResponseEntity<PersonalPerfilDTO> getPerfilPersonal(@RequestParam Long Pe
 
     return ResponseEntity.ok(perfilDTO);
 }
+
 }
  
