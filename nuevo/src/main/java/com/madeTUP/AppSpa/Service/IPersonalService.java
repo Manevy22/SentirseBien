@@ -5,6 +5,7 @@
 package com.madeTUP.AppSpa.Service;
 
 import com.madeTUP.AppSpa.Model.Personal;
+import com.madeTUP.AppSpa.Model.Servicio;
 import java.util.List;
 
 /**
@@ -16,6 +17,6 @@ public interface IPersonalService {
     public void savePersonal (Personal personal);
     public void deletePersonal (Long id);
     public Personal findPersonal (Long id);
-    public void editPersonal (Long id,String nombre_usuario,String contrasenia);
+    public void editPersonal (Long id, String nombre, String apellido, String correo, String nombre_usuario, String contrasenia, List<Servicio> listaServicio);
     public void editPersonalII (Personal personal);
 }

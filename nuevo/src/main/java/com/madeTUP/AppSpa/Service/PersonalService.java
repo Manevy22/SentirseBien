@@ -5,6 +5,7 @@
 package com.madeTUP.AppSpa.Service;
 
 import com.madeTUP.AppSpa.Model.Personal;
+import com.madeTUP.AppSpa.Model.Servicio;
 import com.madeTUP.AppSpa.Repository.IPersonalRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,17 +39,22 @@ public class PersonalService implements IPersonalService {
         return personalrepo.findById(id).orElse(null);
     }
 
-    @Override
-    public void editPersonal(Long id, String nombre_usuario, String contrasenia) {
-        Personal personal=this.findPersonal(id);
-        personal.setNombre_usuario(nombre_usuario);
-        personal.setContrasenia(contrasenia);
-        
-    }
+   
 
     @Override
     public void editPersonalII(Personal personal) {
         this.savePersonal(personal);
+    }
+
+    @Override
+    public void editPersonal(Long id, String nombre, String apellido, String correo, String nombre_usuario, String contrasenia, List<Servicio> listaServicio) {
+        Personal personal=this.findPersonal(id);
+        personal.setNombre(nombre);
+        personal.setApellido(apellido);
+        personal.setCorreo(correo);
+        personal.setListaServicio(listaServicio);
+        personal.setNombre_usuario(nombre_usuario);
+        personal.setContrasenia(contrasenia);
     }
     
 }

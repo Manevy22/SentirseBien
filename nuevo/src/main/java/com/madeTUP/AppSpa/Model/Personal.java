@@ -10,6 +10,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,16 +29,30 @@ public class Personal {
     @Id
 @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    private String nombre;
+    private String apellido;
+    private String correo;
     private String nombre_usuario;
     private String contrasenia;
+    @ManyToMany
+    @JoinTable(name = "empleado_servicio", joinColumns = @JoinColumn(name = "empleado_id"),inverseJoinColumns = @JoinColumn(name = "servicio_id"))
+            private List<Servicio> listaServicio;
+    
 
     public Personal() {
     }
 
-    public Personal(Long id, String nombre, String contrasenia) {
+    public Personal(Long id, String nombre, String apellido, String correo, String nombre_usuario, String contrasenia, List<Servicio> listaServicio) {
         this.id = id;
-        this.nombre_usuario = nombre;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.nombre_usuario = nombre_usuario;
         this.contrasenia = contrasenia;
+        this.listaServicio = listaServicio;
     }
+
+    
+    
 
 }
