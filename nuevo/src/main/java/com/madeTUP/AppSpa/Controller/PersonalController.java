@@ -78,7 +78,7 @@ public class PersonalController {
 public ResponseEntity<Map<String, Object>> loginPersonal(@RequestBody ClienteLoginDTO pers) {
     List<Personal> listaPersonal = servis.getPersonal();
     for (Personal personal : listaPersonal) {
-        if (personal.getNombre_usuario().equals(pers.getUsername())) {
+        if (personal.getNombre_usuario().equals(pers.getUsername()) || personal.getCorreo().equals(pers.getUsername())) {
             if (personal.getContrasenia().equals(pers.getPassword())) {
                 Map<String, Object> response = new HashMap<>();
                 response.put("success", true);
