@@ -17,6 +17,6 @@ public interface IPersonalService {
     public void savePersonal (Personal personal);
     public void deletePersonal (Long id);
     public Personal findPersonal (Long id);
-    public void editPersonal (Long id, String nombre, String apellido, String correo, String nombre_usuario, String contrasenia, Servicio servicio);
+    public void editPersonal (Long id, String nombre, String apellido, String correo, String nombre_usuario, String contrasenia, List<Servicio> listaServicio);
     public void editPersonalII (Personal personal);
 }
