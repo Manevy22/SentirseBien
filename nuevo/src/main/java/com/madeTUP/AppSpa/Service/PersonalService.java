@@ -47,12 +47,12 @@ public class PersonalService implements IPersonalService {
     }
 
     @Override
-    public void editPersonal(Long id, String nombre, String apellido, String correo, String nombre_usuario, String contrasenia, List<Servicio> listaServicio) {
+    public void editPersonal(Long id, String nombre, String apellido, String correo, String nombre_usuario, String contrasenia, Servicio servicio) {
         Personal personal=this.findPersonal(id);
         personal.setNombre(nombre);
         personal.setApellido(apellido);
         personal.setCorreo(correo);
-        personal.setListaServicio(listaServicio);
+         personal.setServicio(servicio);
         personal.setNombre_usuario(nombre_usuario);
         personal.setContrasenia(contrasenia);
     }
