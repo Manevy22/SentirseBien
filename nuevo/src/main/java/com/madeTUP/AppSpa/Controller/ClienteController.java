@@ -1,4 +1,4 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -121,7 +121,7 @@ public class ClienteController {
 public ResponseEntity<Map<String, Object>> loginCliente(@RequestBody ClienteLoginDTO clienteDTO) {
     List<Cliente> listaClientes = servis.getClientes();
     for (Cliente cliente : listaClientes) {
-        if (cliente.getNombre_usuario().equals(clienteDTO.getUsername())) {
+        if (cliente.getNombre_usuario().equals(clienteDTO.getUsername()) ||cliente.getCorreo().equals(clienteDTO.getUsername())) {
             if (cliente.getContrasenia().equals(clienteDTO.getPassword())) {
                 Map<String, Object> response = new HashMap<>();
                 response.put("success", true);
