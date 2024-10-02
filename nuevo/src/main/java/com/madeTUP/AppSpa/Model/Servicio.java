@@ -29,14 +29,17 @@ public class Servicio {
     private Long id;
     private String nombreServicio;
     private Long nroEtapas;
-    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "personal_id")
+    private Personal personal;
     public Servicio() {
     }
 
-    public Servicio(Long id, String nombreServicio, Long nroEtapas) {
+   public Servicio(Long id, String nombreServicio, Long nroEtapas, Personal personal) {
         this.id = id;
         this.nombreServicio = nombreServicio;
         this.nroEtapas = nroEtapas;
+        this.personal = personal;
     }
 
 
