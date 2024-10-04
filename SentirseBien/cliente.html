@@ -248,7 +248,37 @@
     
     
      </div>
-     
+     <div id="appointmentModal" class="modal">
+    <div class="modal-content">
+        <span class="close" style="color: transparent;">&times;</span>
+        <h2>Agendar Turno</h2>
+        <form id="appointmentForm">
+            <label for="appointmentDate">Fecha:</label>
+            <input type="date" id="appointmentDate" name="appointmentDate" required>
+
+            <label for="appointmentClient">Cliente:</label>
+            <select id="appointmentClient" name="appointmentClient" required>
+                <option value="">Selecciona un cliente</option>
+                <!-- Las opciones se llenarán dinámicamente -->
+            </select>
+
+            <label for="appointmentCost">Costo:</label>
+            <input type="number" id="appointmentCost" name="appointmentCost" step="0.01" required>
+
+            <label for="appointmentService">Servicio:</label>
+            <select id="appointmentService" name="appointmentService" required>
+                <option value="">Selecciona un servicio</option>
+                <!-- Las opciones se llenarán dinámicamente -->
+            </select>
+
+            <label for="appointmentEstado">Estado:
+                <span style="display: inline-block; width: 10px; height: 10px; background-color: green; border-radius: 50%; vertical-align: middle;"></span>
+                <span style="vertical-align: middle; margin-left: 5px;">En proceso</span>
+            </label>
+
+            <button type="submit" class="btn btn-primary">Guardar Turno</button>
+        </form>
+    </div>
    
 
     <!-- Footer Start -->
@@ -343,6 +373,7 @@
 
     <!-- Template Javascript -->
    <script src="js/main.js"></script>
+   <script src="js/personal.js"></script>
    <!--<script src="js/scriptChat.js"></script>--> 
     <script src="js/cliente.js"></script>
 </body>
