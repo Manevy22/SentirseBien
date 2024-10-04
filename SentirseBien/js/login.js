@@ -64,4 +64,27 @@ document.addEventListener('DOMContentLoaded', () => {
             errorMessage.textContent = 'Debe seleccionar un rol.';
         }
     });
+      // Función para obtener el perfil del personal
+    async function getPerfilPersonal(personalId) {
+        try {
+            const response = await fetch(`https://overflowing-magic-production.up.railway.app/personal/perfil?PersonalId=${personalId}`, {
+                method: 'GET',
+                credentials: 'include' // Si es necesario
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                // Actualizar el nombre de usuario en el HTML
+                document.getElementById('nombreUsuario').textContent = data.nombre_usuario;
+            } else {
+                console.error('Error al obtener el perfil:', data);
+                document.getElementById('nombreUsuario').textContent = 'Usuario no encontrado';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            document.getElementById('nombreUsuario').textContent = 'Error al obtener perfil';
+        }
+    }
+});
 });
