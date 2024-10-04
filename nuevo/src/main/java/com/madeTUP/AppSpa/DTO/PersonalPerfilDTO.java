@@ -28,5 +28,26 @@ public class PersonalPerfilDTO {
         this.nombre_usuario = nombre_usuario;
         this.listaPer_Ses = listaPer_Ses;
     }
+   @GetMapping("/personal/perfil")
+public ResponseEntity<PersonalPerfilDTO> getPerfilPersonal(@RequestParam Long PersonalId) {
+    Personal personal1 = servis.findPersonal(PersonalId);
+    
+    if (personal1 == null) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+    }
+
+   
+    PersonalPerfilDTO perfilDTO = new PersonalPerfilDTO();
+    perfilDTO.setId(PersonalId);
+    perfilDTO.setNombre_usuario(personal1.getNombre_usuario()); 
+
+    List<SesionPersonalDTO> listaSesionesDos = new ArrayList<>();
+   
+
+    perfilDTO.setListaPer_Ses(listaSesionesDos);
+
+    return ResponseEntity.ok(perfilDTO);
+}
+
   
 }
