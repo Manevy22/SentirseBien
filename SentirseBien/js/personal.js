@@ -27,14 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error al conectarse al servidor:', error);
         }
     }
-    function displayProfile(profile) {
-    // Actualizar el nombre de usuario en el h3
-    const nombreUsuarioElement = document.getElementById('nombreUsuario');
-    if (nombreUsuarioElement) {
-        nombreUsuarioElement.textContent = profile.nombre_usuario;
-    }
+   
 
     function displayProfile(profile) {
+        const nombreUsuarioElement = document.getElementById('nombreUsuario');
+        if (nombreUsuarioElement) {
+        nombreUsuarioElement.textContent = profile.nombre_usuario;
+        }
     const sessionsBody = document.querySelector('.lessons tbody');
     sessionsBody.innerHTML = profile.listaPer_Ses.map(session => {
         // Convertir la fecha al objeto Date en UTC
