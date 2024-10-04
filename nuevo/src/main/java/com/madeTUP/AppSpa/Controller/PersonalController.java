@@ -84,6 +84,7 @@ public ResponseEntity<Map<String, Object>> loginPersonal(@RequestBody ClienteLog
                 response.put("success", true);
                 response.put("message", "Inicio de sesión exitoso.");
                 response.put("personalId", personal.getId()); // Devolver el ID del personal
+                response.put("nombre_usuario", personal.getNombre_usuario());//Devolver nombre
                 return ResponseEntity.ok(response);
             }
         }
