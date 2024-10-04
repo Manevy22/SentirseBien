@@ -331,11 +331,64 @@
                 <img src="img/logo2.jpeg" alt="Stella Walton">
             </div>
             <div class="profile-info">
-                <h3>Dr.Felicidad</h3>
-             
-                
+                <h3 id="nombreUsuario">Dr.Felicidad</h3> 
             </div>
-            
+            <script>
+    // Función para iniciar sesión
+    function login() {
+        const userData = {
+            username: 'nombre_de_usuario', // Aquí debes obtenerlo del formulario
+            password: 'contrasena', // Aquí debes obtenerlo del formulario
+        };
+
+        fetch('/Personal/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Almacena el ID del personal en el almacenamiento local
+                localStorage.setItem('personalId', data.personalId);
+                // Llama a la función para obtener el perfil del usuario
+                getPerfilPersonal(data.personalId);
+            } else {
+                console.error(data.message);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    // Función para obtener el perfil personal
+    function getPerfilPersonal(personalId) {
+        fetch(`/personal/perfil?PersonalId=${personalId}`, {
+            method: 'GET',
+            credentials: 'include' // Asegúrate de incluir las cookies si es necesario
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('No autorizado');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Aquí se actualiza el nombre de usuario en el HTML
+            document.getElementById('nombreUsuario').textContent = data.nombre_usuario; // Actualiza el nombre
+
+            // Aquí puedes agregar más lógica para mostrar otros datos del perfil
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('nombreUsuario').textContent = 'Usuario no encontrado';
+        });
+    }
+
+    // Llama a la función de login cuando sea necesario
+    login(); // Por ejemplo, podrías llamarlo al cargar la página o tras un evento de formulario
+</script>
             <div class="carousel-container">
                 <button class="carousel-btn up-btn">⬆</button>
                 <div class="carousel">
