@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             errorMessage.textContent = 'Debe seleccionar un rol.';
         }
     });
+    });
       // Función para obtener el perfil del personal
     async function getPerfilPersonal(personalId) {
         try {
@@ -87,4 +88,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
-});
+
