@@ -258,12 +258,9 @@
             <label for="appointmentDate">Fecha:</label>
             <input type="date" id="appointmentDate" name="appointmentDate" required>
 
-            <label for="appointmentClient">Cliente:</label>
-            <select id="appointmentClient" name="appointmentClient" required>
-                <span id="client-id-button">ID CLIENTE</span>
-                <!-- Las opciones se llenarán dinámicamente -->
-            </select>
-
+            <label for="appointmentClient">Cliente (ID):</label>
+            <input type="hidden" id="appointmentClient" name="appointmentClient" required>
+            
             <label for="appointmentCost">Costo:</label>
             <input type="number" id="appointmentCost" name="appointmentCost" step="0.01" required>
 
