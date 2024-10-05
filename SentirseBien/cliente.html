@@ -205,7 +205,7 @@
                 <div class="chat-box" id="chat-box">
                 </div>
                 <div class="input-box">
-                    <button id="openFormButton1" class="btn btn-primary">Agendar Turno</button>
+                    <button id="openFormButton" class="btn btn-primary1">Agendar Turno</button>
                     <a href="https://wa.me/5491123456789?text=Hola, me gustaría reservar un turno!" target="_blank">
                         <button id="send-button"></button> <!-- Botón que ahora enlaza a WhatsApp -->
                     </a>
@@ -215,20 +215,21 @@
  
             
             <style>
-                #openFormButton1 {
+              .btn.btn-primary1 {
     padding: 10px 20px; /* Ajusta el tamaño del botón */
-    background-color: #007bff; /* Color de fondo del botón (puedes cambiarlo) */
+    background-color: #007bff; /* Color de fondo, si quieres mantener el de Bootstrap */
     color: white; /* Color del texto */
-    border: none; /* Elimina el borde */
-    border-radius: 0; /* Esto asegura que sea un rectángulo sin bordes redondeados */
+    border: none; /* Elimina cualquier borde que agregue Bootstrap */
+    border-radius: 0; /* Asegura que el botón sea completamente rectangular */
     font-size: 16px; /* Tamaño de la fuente */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra opcional para darle algo de profundidad */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra opcional */
 }
 
-#openFormButton1:hover {
+.btn.btn-primary1:hover {
     background-color: #0056b3; /* Cambia el color al pasar el cursor */
 }
+
 
                 .input-box {
                     display: flex;
