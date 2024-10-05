@@ -175,7 +175,7 @@
     <h3>Nombre del Cliente</h3> <!-- Este nombre se actualizará dinámicamente -->
     <button id="client-id-button">ID CLIENTE</button> <!-- Este botón mostrará el ID del cliente -->
 </div>
-            
+           
             <div class="calendar-wrapper">
                 <header>
                     <p class="current-date"></p>
@@ -258,7 +258,7 @@
             <label for="appointmentDate">Fecha:</label>
             <input type="date" id="appointmentDate" name="appointmentDate" required>
 
-            <label for="appointmentClient">Cliente (ID):</label>
+            <label for="appointmentClient">Cliente (ID): <span id="client-id-button"></span> </label>
             <input type="hidden" id="appointmentClient" name="appointmentClient" required>
             
             <label for="appointmentCost">Costo:</label>
