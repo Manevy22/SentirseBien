@@ -7,6 +7,7 @@ package com.madeTUP.AppSpa.DTO;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+import com.madeTUP.AppSpa.DTO.SesionPersonalDTO;
 
 /**
  *
